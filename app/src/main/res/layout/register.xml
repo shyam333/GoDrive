@@ -75,38 +75,13 @@
         android:ems="10"
         android:inputType="textPersonName" />
 
-    <RadioButton
-        android:id="@+id/radioButton6"
-        android:layout_marginRight="8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/passedt"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="11dp"
-        android:text="JobSeeker" />
-
-    <RadioButton
-        android:id="@+id/radioButton7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/radioButton6"
-        android:layout_marginLeft="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_toEndOf="@+id/radioButton6"
-        android:layout_toRightOf="@+id/radioButton6"
-        android:text="Employer" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/radioButton7"
-        android:layout_marginTop="45dp"
-        android:layout_toEndOf="@+id/radioButton6"
-        android:layout_toRightOf="@+id/radioButton6"
+        android:layout_below="@+id/passedt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
         android:text="Register" />
 
 </RelativeLayout>

@@ -18,40 +18,50 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/txt1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Heading"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat"/>
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:textSize="24sp" />
 
         <TextView
+            android:id="@+id/txt2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Description"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat"/>
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/txt3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Experience"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat"/>
+            android:textAppearance="@style/Base.TextAppearance.AppCompat" />
 
         <TextView
+            android:id="@+id/txt4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Location"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat"/>
+            android:textAppearance="@style/Base.TextAppearance.AppCompat" />
 
         <TextView
+            android:id="@+id/txt5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="KeySkills"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat"/>
+            android:maxLines="1"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat" />
 
         <TextView
+            android:id="@+id/txt6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="JobDescription"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat"/>
+            android:maxLines="1"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat" />
 
 
     </LinearLayout>

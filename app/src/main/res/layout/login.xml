@@ -6,15 +6,15 @@
 
     <TextView
         android:id="@+id/emailtxt"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="26dp"
-        android:text="Email" />
+        android:text="UserName" />
 
     <EditText
         android:id="@+id/emailedt"

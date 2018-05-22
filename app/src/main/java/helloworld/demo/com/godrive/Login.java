@@ -30,19 +30,20 @@ import java.util.Map;
 
 public class Login extends AppCompatActivity {
 
-    TextView email,password;
-    EditText mail,pass;
+    TextView username,password;
+    EditText name,pass;
     Button button;
     ProgressDialog progressDialog;
+    String usernamecheck,passwordcheck;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        email = (TextView)findViewById(R.id.emailtxt);
+        username = (TextView)findViewById(R.id.emailtxt);
         password = (TextView)findViewById(R.id.passtxt);
-        mail = (EditText)findViewById(R.id.emailedt);
+        name = (EditText)findViewById(R.id.emailedt);
         pass = (EditText)findViewById(R.id.passedt);
         button = (Button)findViewById(R.id.logbtn);
         progressDialog = new ProgressDialog(this);
@@ -51,14 +52,31 @@ public class Login extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                validationMethod();
                 login();
             }
         });
     }
 
+    private void validationMethod() {
+
+        usernamecheck = name.getText().toString();
+        passwordcheck = pass.getText().toString();
+        if(usernamecheck.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),"Enter UserName",Toast.LENGTH_SHORT).show();
+        }
+        else if(passwordcheck.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),"Enter Password",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
     private void login()
     {
-        final String s1 = mail.getText().toString();
+        final String s1 = name.getText().toString();
         final String s2 = pass.getText().toString();
 
         progressDialog.setMessage("Please Wait....");
@@ -84,7 +102,7 @@ public class Login extends AppCompatActivity {
                             {
                                 Toast.makeText(getApplicationContext(),"User Login Successful",Toast.LENGTH_LONG).show();
                                 progressDialog.dismiss();
-                                startActivity(new Intent(getApplicationContext(), UserProfile.class));
+                                startActivity(new Intent(getApplicationContext(), Main2Activity.class));
                                 finish();
                            }
                             else {
@@ -98,7 +116,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.hide();
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
         }){
             @Override

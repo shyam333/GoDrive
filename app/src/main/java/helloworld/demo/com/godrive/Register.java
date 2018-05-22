@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,10 +19,10 @@ import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
 
 /**
  * Created by shyamramesh on 14/05/18.
@@ -33,6 +34,8 @@ public class Register extends AppCompatActivity {
     EditText nam,mail,pass;
     Button button;
     ProgressDialog progressDialog;
+    String namecheck,emailcheck,passwordcheck;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,9 +54,43 @@ public class Register extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerUser();
+                validateEmail(mail.getText().toString());
+                validationMethod();
             }
         });
+
+    }
+
+    private void validateEmail(String s) {
+
+        if(s.contains("@"))
+        {
+           registerUser();
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"Invalid Email",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+    private void validationMethod() {
+
+        namecheck = nam.getText().toString();
+        emailcheck = mail.getText().toString();
+        passwordcheck = pass.getText().toString();
+        if(namecheck.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),"Enter Name",Toast.LENGTH_SHORT).show();
+        }
+        else if(emailcheck.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),"Enter Email",Toast.LENGTH_SHORT).show();
+        }
+        else if(passwordcheck.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),"Enter Password",Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void registerUser()
@@ -89,7 +126,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.hide();
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
         }){
             @Override
