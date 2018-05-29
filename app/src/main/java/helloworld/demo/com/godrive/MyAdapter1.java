@@ -1,14 +1,13 @@
 package helloworld.demo.com.godrive;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +16,12 @@ import java.util.List;
  * Created by shyamramesh on 20/05/18.
  */
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
 
     private List<ListItem>listItem = new ArrayList<>();
     Context context;
 
-    public MyAdapter(List<ListItem> listItem, Context context) {
+    public MyAdapter1(List<ListItem> listItem, Context context) {
 
         this.listItem = listItem;
         this.context = context;
@@ -32,7 +31,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item1,parent,false);
         return new MyViewHolder(v);
     }
 
@@ -69,6 +68,30 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             skills = (TextView)v.findViewById(R.id.txt5);
             description = (TextView)v.findViewById(R.id.txt6);
 
+            title.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    String value1 = title.getText().toString();
+
+
+//                    Intent ieventreport = new Intent(context,JobDetail.class);
+//                    context.startActivity(ieventreport);
+
+                    Intent intent = new Intent(context,JobDetail.class);
+                    intent.putExtra("key1",value1);
+                    context.startActivity(intent);
+
+                    //activity.startActivity(new Intent(activity, NVirementEmmeteur.class));
+
+                    //context.startActivity(new Intent(context,JobDetails.class));
+
+                }
+            });
+
         }
+
+
     }
+
 }

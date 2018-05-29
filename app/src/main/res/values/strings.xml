@@ -9,4 +9,143 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="experience_years">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
+    <string-array name="expected_salary">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
+    <string-array name="jobnames">
+        <item>Administration</item>
+        <item>Advertising/Marketing/PR</item>
+        <item>IT-Software</item>
+        <item>IT-Hardware</item>
+        <item>BPO/KPO/Customer Support</item>
+        <item>Sales and Marketing</item>
+        <item>Human Resources</item>
+        <item>Journalism/Content</item>
+        <item>Medical/Healthcare</item>
+        <item>Banking/Insurance</item>
+        <item>Logistics</item>
+        <item>Finance</item>
+        <item>Manufacturing</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="locations">
+        <item>Bangalore</item>
+        <item>Belgaum</item>
+        <item>Bhubaneswar</item>
+        <item>Mumbai</item>
+        <item>Chennai</item>
+        <item>Cochin</item>
+        <item>Coimbatore</item>
+        <item>Dindigul</item>
+        <item>Ernakulam</item>
+        <item>Ghaziabad</item>
+        <item>Guntur</item>
+        <item>Gurgaon</item>
+        <item>Hosur</item>
+        <item>Hubli</item>
+        <item>Hyderabad</item>
+        <item>Indore</item>
+        <item>Jaipur</item>
+        <item>Kannur</item>
+        <item>Kochi</item>
+        <item>Kolkata</item>
+        <item>Kollam</item>
+        <item>Kottayam</item>
+        <item>Kukatpally</item>
+        <item>Madurai</item>
+        <item>Mangalore</item>
+        <item>Mohali</item>
+        <item>Nagercoil</item>
+        <item>Nagpur</item>
+        <item>Nellore</item>
+        <item>Patna</item>
+        <item>Pune</item>
+        <item>Salem</item>
+        <item>Secunderabad</item>
+        <item>Sivakasi</item>
+        <item>Srinagar</item>
+        <item>Thanjavur</item>
+        <item>Thrissur</item>
+        <item>Tirupur</item>
+        <item>Trichy</item>
+        <item>Trivandrum</item>
+        <item>Vellore</item>
+        <item>Visakhapatnam</item>
+        <item>Gangtok</item>
+        <item>Sambalpur</item>
+        <item>Mahabalipuram</item>
+        <item>Erode</item>
+        <item>Kanchipuram</item>
+        <item>Kodaikanal</item>
+        <item>California</item>
+        <item>Chandigarh</item>
+        <item>Dubai</item>
+        <item>Kuwait</item>
+        <item>Malaysia</item>
+        <item>Muscat</item>
+        <item>Noida</item>
+        <item>Orange,CA</item>
+        <item>Saudi Arabia</item>
+        <item>Pondichervry</item>
+        <item>Delhi</item>
+        <item>Vijayawada</item>
+        <item>Gandhinagar</item>
+        <item>Agartala</item>
+        <item>Calicut</item>
+        <item>Abu Dhabi</item>
+        <item>Alleppey</item>
+        <item>Ludhiana</item>
+        <item>San Francisco</item>
+        <item>Vadodara</item>
+        <item>Bhopal</item>
+        <item>Tirupati</item>
+        <item>Singapore</item>
+        <item>Germany</item>
+        <item>Goa</item>
+        <item>oman</item>
+        <item>Gandhi Nagar</item>
+        <item>Mysore</item>
+        <item>Gulbarga</item>
+        <item>Panchkula</item>
+        <item>canada</item>
+        <item>Guwahati</item>
+        <item>Jamshedpur</item>
+        <item>London</item>
+        <item>Karur</item>
+        <item>Los angeles</item>
+        <item>Tiruvannamalai</item>
+        <item>Sivagangai</item>
+        <item>kanpur</item>
+        <item>uttrapradesh</item>
+        <item>Itanagar</item>
+        <item>Lucknow</item>
+        <item>United Kingdom</item>
+        <item>Ranchi, Jharkhand</item>
+        <item>Kerala</item>
+        <item>Hong Kong</item>
+    </string-array>
 </resources>

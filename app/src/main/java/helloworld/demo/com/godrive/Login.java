@@ -90,23 +90,27 @@ public class Login extends AppCompatActivity {
                         progressDialog.dismiss();
                         try {
                             //Converting response to JSON format
-
                             JSONObject jsonObject = new JSONObject(response);
                             String s = jsonObject.getString("status");
-                           // JSONObject dataobject = jsonObject.getJSONObject("data");
-                           // String userid = dataobject.getString("userid");
-                           // Log.d("userid",userid);
+
+                            //Getting User Id
+//                            JSONObject dataobject = jsonObject.getJSONObject("data");
+//                            String userid = dataobject.getString("userid");
+//                            Model model = new Model();
+//                            model.setUserid(userid);
+//                            Log.d("UserId: ",userid);
+
                             Log.d("response",response.toString());
                            // if(!jsonObject.getBoolean("status")) {
                             if(!s.equals("400"))
                             {
-                                Toast.makeText(getApplicationContext(),"User Login Successful",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"User Login Successful",Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
                                 startActivity(new Intent(getApplicationContext(), Main2Activity.class));
                                 finish();
                            }
                             else {
-                                Toast.makeText(getApplicationContext(), jsonObject.getString("status_message"), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), jsonObject.getString("status_message"), Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

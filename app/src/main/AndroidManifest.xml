@@ -21,10 +21,16 @@
         <activity android:name=".Login" />
         <activity android:name=".Register" />
         <activity android:name=".ListItem" />
+        <activity android:name=".JobSearch" />
+        <activity android:name=".JobDetail">
+        </activity>
+        <activity android:name=".UpdateProfile"></activity>
+        <activity android:name=".Appliedjobs"></activity>
+        <activity android:name=".SearchedJobs"></activity>
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -1,13 +1,10 @@
 package helloworld.demo.com.godrive;
 
-import android.app.FragmentManager;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -61,61 +58,11 @@ public class Main2Activity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-    }
-
-    private void loadRecyclerViewData() {
-
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading Data....!");
-        progressDialog.show();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET,
-                Constants.URL_JOBS,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String s) {
-                        try {
-                            progressDialog.dismiss();
-
-                            JSONObject jsonObject = new JSONObject(s);
-                            JSONArray array = jsonObject.getJSONArray("data");
-
-                            //JSONArray array = new JSONArray(s);
-                            for (int i = 0; i < array.length(); i++) {
-                                JSONObject o = array.getJSONObject(i);
-                                ListItem item = new ListItem(
-                                        o.getString("job_title"),
-                                        o.getString("category_name"),
-                                        o.getString("experience_from"),
-                                        o.getString("experience_to"),
-                                        o.getString("location_name"),
-                                        o.getString("keyskills"),
-                                        o.getString("job_description")
-                                );
-                                listItem.add(item);
-                            }
-                            adapter = new MyAdapter(listItem, getApplicationContext());
-                            recyclerView.setAdapter(adapter);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
-                    }
-                });
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
 
 
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -157,12 +104,20 @@ public class Main2Activity extends AppCompatActivity
 
         if (id == R.id.item1) {
             // Handle the camera action
-            JobsearchFragment jobsearchFragment = new JobsearchFragment();
-            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.relativelayout,jobsearchFragment).commit();
+
+            startActivity(new Intent(Main2Activity.this,JobSearch.class));
+//            JobsearchFragment jobsearchFragment = new JobsearchFragment();
+//            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+//            fragmentManager.beginTransaction().replace(R.id.relativelayout,jobsearchFragment).commit();
         } else if (id == R.id.item2) {
 
+            startActivity(new Intent(Main2Activity.this,UpdateProfile.class));
+
+
+
         } else if (id == R.id.item3) {
+
+            startActivity(new Intent(Main2Activity.this,Appliedjobs.class));
 
         }
 
@@ -171,4 +126,59 @@ public class Main2Activity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void loadRecyclerViewData() {
+
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading Data....!");
+        progressDialog.show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET,
+                Constants.URL_JOBS,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        try {
+                            progressDialog.dismiss();
+
+                            JSONObject jsonObject = new JSONObject(s);
+                            JSONArray array = jsonObject.getJSONArray("data");
+
+                            //JSONArray array = new JSONArray(s);
+                            for (int i = 0; i < array.length(); i++) {
+                                JSONObject o = array.getJSONObject(i);
+                                ListItem item = new ListItem(
+                                        o.getString("job_title"),
+                                        o.getString("category_name"),
+                                        o.getString("experience_from"),
+                                        o.getString("experience_to"),
+                                        o.getString("location_name"),
+                                        o.getString("keyskills"),
+                                        o.getString("job_description")
+                                );
+                                listItem.add(item);
+                            }
+                            adapter = new MyAdapter1(listItem, getApplicationContext());
+                            recyclerView.setAdapter(adapter);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+
+    }
+
 }
