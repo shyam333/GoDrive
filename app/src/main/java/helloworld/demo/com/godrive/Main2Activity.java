@@ -158,7 +158,9 @@ public class Main2Activity extends AppCompatActivity
                                 );
                                 listItem.add(item);
                             }
-                            adapter = new MyAdapter1(listItem, getApplicationContext());
+                            Intent intent = getIntent();
+                            String id = intent.getStringExtra("key");
+                            adapter = new MyAdapter1(listItem,getApplicationContext());
                             recyclerView.setAdapter(adapter);
 
                         } catch (JSONException e) {

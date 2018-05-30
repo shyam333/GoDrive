@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 
 public class Model extends AppCompatActivity {
 
-    String userid;
+    public String userid;
 
     public Model(){
 
@@ -24,5 +24,15 @@ public class Model extends AppCompatActivity {
 
     public void setUserid(String userid) {
         this.userid = userid;
+    }
+
+    public void setString(String userid) {
+
+        this.userid = userid;
+    }
+
+    public String getString() {
+
+        return userid;
     }
 }

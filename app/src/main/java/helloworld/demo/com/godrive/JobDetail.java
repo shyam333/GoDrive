@@ -89,7 +89,7 @@ public class JobDetail extends AppCompatActivity {
                                     listItem.add(item);
                                 }
                             }
-                            mAdapter = new MyAdapter2(listItem, getApplicationContext());
+                            mAdapter = new MyAdapter2(listItem,getApplicationContext());
                             recyclerView.setAdapter(mAdapter);
 
                         } catch (JSONException e) {

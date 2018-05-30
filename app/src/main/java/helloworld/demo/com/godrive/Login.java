@@ -2,7 +2,9 @@ package helloworld.demo.com.godrive;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,7 +23,9 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,6 +39,9 @@ public class Login extends AppCompatActivity {
     Button button;
     ProgressDialog progressDialog;
     String usernamecheck,passwordcheck;
+
+    public static final String My_Pref = "canditate_id";
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -94,11 +101,15 @@ public class Login extends AppCompatActivity {
                             String s = jsonObject.getString("status");
 
                             //Getting User Id
-//                            JSONObject dataobject = jsonObject.getJSONObject("data");
-//                            String userid = dataobject.getString("userid");
-//                            Model model = new Model();
-//                            model.setUserid(userid);
-//                            Log.d("UserId: ",userid);
+                            JSONObject dataobject = jsonObject.getJSONObject("data");
+                            String userid = dataobject.getString("userid");
+                            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(Login.this);
+                            SharedPreferences.Editor editor = pref.edit();
+                            editor.putString("userid",userid);
+                            editor.commit();
+                           // Model model = new Model();
+                          //  model.setString(userid);
+                            Log.d("UserId: ",userid);
 
                             Log.d("response",response.toString());
                            // if(!jsonObject.getBoolean("status")) {
@@ -106,6 +117,7 @@ public class Login extends AppCompatActivity {
                             {
                                 Toast.makeText(getApplicationContext(),"User Login Successful",Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
+
                                 startActivity(new Intent(getApplicationContext(), Main2Activity.class));
                                 finish();
                            }

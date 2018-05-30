@@ -2,7 +2,9 @@ package helloworld.demo.com.godrive;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -27,6 +29,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * Created by shyamramesh on 23/05/18.
  */
@@ -35,9 +39,9 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
 
     private List<ListItem>listItem = new ArrayList<>();
     Context context;
+    public static final String My_Pref = "canditate_id";
 
     public MyAdapter2(List<ListItem> listItem, Context context) {
-
         this.listItem = listItem;
         this.context = context;
     }
@@ -103,8 +107,10 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
 
         private void uploadJobToServer() {
 
-//            Model model = new Model();
-           // final String s1;
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+            final String s1 = pref.getString("userid","n/a");
+           // final Model model = new Model();
+
             final String s2 = title.getText().toString();
 
             StringRequest stringRequest = new StringRequest(Request.Method.POST,
@@ -138,7 +144,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
                 protected Map<String,String> getParams() throws AuthFailureError {
 
                     Map<String,String>params = new HashMap<>();
-                    //params.put("candidate_id",s1);
+                    params.put("candidate_id",s1);
                     params.put("job_id",s2);
                     return params;
                 }
