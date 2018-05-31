@@ -63,7 +63,7 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
 
             title = (TextView)v.findViewById(R.id.txt1);
             category = (TextView)v.findViewById(R.id.txt2);
-            expfrom = (TextView)v.findViewById(R.id.txt3);
+            expfrom = (TextView)v.findViewById(R.id.newusertxt);
             location = (TextView)v.findViewById(R.id.txt4);
             skills = (TextView)v.findViewById(R.id.txt5);
             description = (TextView)v.findViewById(R.id.txt6);

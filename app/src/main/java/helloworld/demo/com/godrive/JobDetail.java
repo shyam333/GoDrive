@@ -61,7 +61,6 @@ public class JobDetail extends AppCompatActivity {
 
                             Intent intent = getIntent();
                             String jobtitle = intent.getStringExtra("key1");
-
                             JSONObject jsonObject = new JSONObject(s);
                             JSONArray array = jsonObject.getJSONArray("data");
 
@@ -95,8 +94,6 @@ public class JobDetail extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
-
                     }
                 },
                 new Response.ErrorListener() {

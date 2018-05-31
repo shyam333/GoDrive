@@ -1,12 +1,9 @@
 package helloworld.demo.com.godrive;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,8 +25,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by shyamramesh on 23/05/18.
@@ -85,7 +80,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
             category = (TextView)v.findViewById(R.id.category);
             experience = (TextView)v.findViewById(R.id.txt1);
             vacancy = (TextView)v.findViewById(R.id.txt2);
-            location = (TextView)v.findViewById(R.id.txt3);
+            location = (TextView)v.findViewById(R.id.newusertxt);
             salary = (TextView)v.findViewById(R.id.txt4);
             description = (TextView)v.findViewById(R.id.txt6);
             skills = (TextView)v.findViewById(R.id.txt8);

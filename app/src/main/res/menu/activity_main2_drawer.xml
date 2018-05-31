@@ -4,32 +4,62 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/item1"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Search Jobs" />
+            android:title="My Godrive Home" />
+
         <item
             android:id="@+id/item2"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Search Jobs" />
+        <item
+            android:id="@+id/item3"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Post Resume" />
         <item
-            android:id="@+id/item3"
+            android:id="@+id/item4"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Applied Jobs" />
 
+        <item
+            android:id="@+id/item5"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="View Profile" />
+
+
+        <item
+            android:id="@+id/item6"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="FAQs" />
+
+
+        <item
+            android:id="@+id/item7"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Feedback" />
+
+
+
+        <item
+            android:id="@+id/item8"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="About Us" />
+
+        <item
+            android:id="@+id/item9"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Help" />
+
+        <item
+            android:id="@+id/item10"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Sign Out" />
+
+
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
+
 
 </menu>

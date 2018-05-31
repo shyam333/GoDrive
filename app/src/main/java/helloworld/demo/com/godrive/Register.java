@@ -1,9 +1,11 @@
 package helloworld.demo.com.godrive;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -61,6 +63,14 @@ public class Register extends AppCompatActivity {
 
     }
 
+    private void clearEditText(){
+
+        nam.setText("");
+        mail.setText("");
+        pass.setText("");
+
+    }
+
     private void validateEmail(String s) {
 
         if(s.contains("@"))
@@ -110,12 +120,24 @@ public class Register extends AppCompatActivity {
                         progressDialog.dismiss();
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            String s = jsonObject.getString("status");
-                            if(!s.equals("400")) {
-                                Toast.makeText(getApplicationContext(), "Registration Successful", Toast.LENGTH_LONG).show();
+                            String s1 = jsonObject.getString("status");
+                            Log.d("STATUS:",s1);
+                           // String s2 = jsonObject.getString("status_message");
+                           // Log.d("STATUS_MESSAGE:",s2);
+                           // Log.d("RESPONSE:",response.toString());
+                          //  if(s2.equals("User insert")) {
+                            if(!s1.equals("400")){
+
+                                Toast.makeText(getApplicationContext(), "Registration Successful", Toast.LENGTH_SHORT).show();
+                                clearEditText();
+                                startActivity(new Intent(Register.this,Login.class));
                                 //Toast.makeText(getApplicationContext(), jsonObject.getString("status_message"), Toast.LENGTH_LONG).show();
                             }
-                            else {
+//                            else if(s2.equals("Username or Email Exists"))
+//                            {
+//                                Toast.makeText(getApplicationContext(),"Already Registered",Toast.LENGTH_SHORT).show();
+//                            }
+                            else{
                                 Toast.makeText(getApplicationContext(),"Registration Failed",Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
@@ -141,4 +163,6 @@ public class Register extends AppCompatActivity {
 
             RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }
+
+
 }

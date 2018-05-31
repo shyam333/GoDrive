@@ -11,7 +11,6 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Created by shyamramesh on 22/05/18.
@@ -20,7 +19,7 @@ import android.widget.Toast;
 public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
 
-    Spinner spin1,spin2,spin3,spin4;
+    Spinner spin1,spin2;
     TextView category,location,experience,renumeration;
     AutoCompleteTextView autoComplete1,autoComplete2;
     String[] jobs,locations;
@@ -33,7 +32,7 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
 
         category = (TextView)findViewById(R.id.txt1);
         location = (TextView)findViewById(R.id.txt2);
-        experience = (TextView)findViewById(R.id.txt3);
+        experience = (TextView)findViewById(R.id.newusertxt);
         renumeration = (TextView)findViewById(R.id.txt4);
         spin1 = (Spinner)findViewById(R.id.spinner1);
         spin2 = (Spinner)findViewById(R.id.spinner2);

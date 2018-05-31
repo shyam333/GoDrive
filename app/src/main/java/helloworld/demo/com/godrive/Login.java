@@ -40,19 +40,17 @@ public class Login extends AppCompatActivity {
     ProgressDialog progressDialog;
     String usernamecheck,passwordcheck;
 
-    public static final String My_Pref = "canditate_id";
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        username = (TextView)findViewById(R.id.emailtxt);
-        password = (TextView)findViewById(R.id.passtxt);
-        name = (EditText)findViewById(R.id.emailedt);
-        pass = (EditText)findViewById(R.id.passedt);
-        button = (Button)findViewById(R.id.logbtn);
+        username = (TextView) findViewById(R.id.emailtxt);
+        password = (TextView) findViewById(R.id.passtxt);
+        // newuser = (TextView)findViewById(R.id.newusertxt);
+        name = (EditText) findViewById(R.id.emailedt);
+        pass = (EditText) findViewById(R.id.passedt);
+        button = (Button) findViewById(R.id.logbtn);
         progressDialog = new ProgressDialog(this);
 
 
@@ -64,7 +62,17 @@ public class Login extends AppCompatActivity {
                 login();
             }
         });
+
+
+
     }
+
+
+    public void goToRegister(View view) {
+
+        startActivity(new Intent(Login.this,Register.class));
+    }
+
 
     private void validationMethod() {
 
@@ -107,8 +115,7 @@ public class Login extends AppCompatActivity {
                             SharedPreferences.Editor editor = pref.edit();
                             editor.putString("userid",userid);
                             editor.commit();
-                           // Model model = new Model();
-                          //  model.setString(userid);
+
                             Log.d("UserId: ",userid);
 
                             Log.d("response",response.toString());
@@ -146,4 +153,6 @@ public class Login extends AppCompatActivity {
 
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }
+
+
 }

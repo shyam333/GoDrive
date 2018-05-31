@@ -1,8 +1,11 @@
 package helloworld.demo.com.godrive;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
@@ -35,7 +38,14 @@ public class Main2Activity extends AppCompatActivity
     List<ListItem> listItem = new ArrayList<>();
     RecyclerView.Adapter adapter;
     RecyclerView recyclerView;
+    //Context context;
+  //  OnLogoutListener logOutListener;
 
+
+//    public interface OnLogoutListener
+//    {
+//        public void logOutPerformed();
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,28 +84,6 @@ public class Main2Activity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main2, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -104,20 +92,24 @@ public class Main2Activity extends AppCompatActivity
 
         if (id == R.id.item1) {
             // Handle the camera action
-
             startActivity(new Intent(Main2Activity.this,JobSearch.class));
-//            JobsearchFragment jobsearchFragment = new JobsearchFragment();
-//            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-//            fragmentManager.beginTransaction().replace(R.id.relativelayout,jobsearchFragment).commit();
+
         } else if (id == R.id.item2) {
 
             startActivity(new Intent(Main2Activity.this,UpdateProfile.class));
 
 
-
         } else if (id == R.id.item3) {
 
             startActivity(new Intent(Main2Activity.this,Appliedjobs.class));
+
+        } else if(id == R.id.item10) {
+
+            Intent intent = new Intent(Main2Activity.this,Login.class);
+           // intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
 
         }
 
@@ -158,8 +150,6 @@ public class Main2Activity extends AppCompatActivity
                                 );
                                 listItem.add(item);
                             }
-                            Intent intent = getIntent();
-                            String id = intent.getStringExtra("key");
                             adapter = new MyAdapter1(listItem,getApplicationContext());
                             recyclerView.setAdapter(adapter);
 
@@ -183,4 +173,10 @@ public class Main2Activity extends AppCompatActivity
 
     }
 
+//    @Override
+//    public void onAttachFragment(Fragment fragment) {
+//        super.onAttachFragment(fragment);
+//        Activity activity = (Activity)context;
+//        logOutListener = (OnLogoutListener)activity;
+//    }
 }

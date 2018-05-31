@@ -60,4 +60,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
         android:text="Login" />
+
+    <TextView
+        android:id="@+id/newusertxt"
+        android:onClick="goToRegister"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/passedt"
+        android:layout_alignStart="@+id/passedt"
+        android:layout_below="@+id/logbtn"
+        android:text="New User?Register Here" />
 </RelativeLayout>
