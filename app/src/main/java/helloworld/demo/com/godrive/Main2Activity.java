@@ -92,18 +92,21 @@ public class Main2Activity extends AppCompatActivity
 
         if (id == R.id.item1) {
             // Handle the camera action
-            startActivity(new Intent(Main2Activity.this,JobSearch.class));
+
 
         } else if (id == R.id.item2) {
 
-            startActivity(new Intent(Main2Activity.this,UpdateProfile.class));
-
+            startActivity(new Intent(Main2Activity.this,JobSearch.class));
 
         } else if (id == R.id.item3) {
 
-            startActivity(new Intent(Main2Activity.this,Appliedjobs.class));
+            startActivity(new Intent(Main2Activity.this,UpdateProfile.class));
 
-        } else if(id == R.id.item10) {
+        } else if (id == R.id.item4) {
+
+            startActivity(new Intent(Main2Activity.this,Appliedjobs.class));
+        }
+        else if(id == R.id.item10) {
 
             Intent intent = new Intent(Main2Activity.this,Login.class);
            // intent.addCategory(Intent.CATEGORY_HOME);

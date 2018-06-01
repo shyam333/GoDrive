@@ -80,6 +80,7 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
 
                     Intent intent = new Intent(context,JobDetail.class);
                     intent.putExtra("key1",value1);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
 
                     //activity.startActivity(new Intent(activity, NVirementEmmeteur.class));

@@ -35,8 +35,8 @@ dependencies {
     compile "com.android.support:cardview-v7:27.0.2"
     //RecyclerView
     compile 'com.android.support:recyclerview-v7:27.0.0'
-    //ExpandableTextView
-    compile 'tm.charlie.androidlib:expandable-textview:2.0.2'
+    //UploadService
+    compile 'net.gotev:uploadservice:2.1'
 
 
 }

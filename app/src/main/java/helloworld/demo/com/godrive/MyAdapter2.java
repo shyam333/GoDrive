@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+
 
 /**
  * Created by shyamramesh on 23/05/18.
@@ -82,7 +85,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
             vacancy = (TextView)v.findViewById(R.id.txt2);
             location = (TextView)v.findViewById(R.id.newusertxt);
             salary = (TextView)v.findViewById(R.id.txt4);
-            description = (TextView)v.findViewById(R.id.txt6);
+            description = (TextView) v.findViewById(R.id.txt6);
             skills = (TextView)v.findViewById(R.id.txt8);
             education = (TextView)v.findViewById(R.id.txt13);
             contactperson = (TextView)v.findViewById(R.id.txt15);

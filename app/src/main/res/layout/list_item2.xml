@@ -13,6 +13,7 @@
 
         <TextView
             android:id="@+id/job"
+            android:layout_marginLeft="8dp"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:textColor="@android:color/background_dark"
@@ -20,6 +21,7 @@
 
         <TextView
             android:id="@+id/category"
+            android:layout_marginLeft="8dp"
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_marginTop="40dp"
@@ -30,7 +32,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/cardView">
+        android:layout_below="@+id/cardView"
+        android:id="@+id/rl1">
 
 
         <ImageView
@@ -134,7 +137,7 @@
             android:layout_below="@+id/txt5"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:maxLines="5" />
+            android:autoSizeTextType="uniform" />
 
         <TextView
             android:id="@+id/txt7"
@@ -214,16 +217,23 @@
             android:layout_alignStart="@+id/txt15"
             android:layout_below="@+id/txt15" />
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/rl1">
+
         <Button
             android:id="@+id/btn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:text="Apply" />
-
-
     </RelativeLayout>
 
 </RelativeLayout>
