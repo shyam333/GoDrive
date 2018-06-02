@@ -95,7 +95,7 @@ public class SearchedJobs extends AppCompatActivity {
                                 }
 
                             }
-                            mAdapter = new MyAdapter2(listItem,getApplicationContext());
+                            mAdapter = new MyAdapter1(listItem,getApplicationContext());
                             recyclerView.setAdapter(mAdapter);
 
                         } catch (JSONException e) {

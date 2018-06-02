@@ -13,4 +13,6 @@ public class Constants {
     public static final String URL_JOBS = "http://www.godigitell.in/dev/hrportal/apijobsearch.php";
 
     public static final String URL_APPLY = "http://www.godigitell.in/dev/hrportal/apijobapply.php";
+
+    public static final String URL_UPLOAD = "http://internetfaqs.net/AndroidPdfUpload/upload.php";
 }

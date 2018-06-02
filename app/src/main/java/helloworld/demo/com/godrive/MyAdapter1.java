@@ -42,10 +42,14 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
 
         holder.title.setText(listItems.getJob());
         holder.category.setText(listItems.getCategory());
-        holder.expfrom.setText    ("Experience:             "+listItems.getExpfrom()+"-"+listItems.getExpto());
+        if(listItems.getExpto() != null) {
+            holder.expfrom.setText("Experience:             " + listItems.getExpfrom() + "-" + listItems.getExpto());
+        }
+        else {
+            holder.expfrom.setText("Experience:             " + listItems.getExpfrom());
+        }
         holder.location.setText   ("Location:               "+listItems.getLocation());
         holder.skills.setText     ("KeySkills:              "+listItems.getSkills());
-        holder.description.setText("JobDescription:         "+listItems.getDescription());
 
     }
 
@@ -61,12 +65,11 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
         public MyViewHolder(View v) {
             super(v);
 
-            title = (TextView)v.findViewById(R.id.txt1);
-            category = (TextView)v.findViewById(R.id.txt2);
+            title = (TextView)v.findViewById(R.id.edt1);
+            category = (TextView)v.findViewById(R.id.edt2);
             expfrom = (TextView)v.findViewById(R.id.newusertxt);
             location = (TextView)v.findViewById(R.id.txt4);
             skills = (TextView)v.findViewById(R.id.txt5);
-            description = (TextView)v.findViewById(R.id.txt6);
 
             title.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -74,18 +77,11 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
 
                     String value1 = title.getText().toString();
 
-
-//                    Intent ieventreport = new Intent(context,JobDetail.class);
-//                    context.startActivity(ieventreport);
-
                     Intent intent = new Intent(context,JobDetail.class);
                     intent.putExtra("key1",value1);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
 
-                    //activity.startActivity(new Intent(activity, NVirementEmmeteur.class));
-
-                    //context.startActivity(new Intent(context,JobDetails.class));
 
                 }
             });

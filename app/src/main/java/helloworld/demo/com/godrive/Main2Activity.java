@@ -1,11 +1,8 @@
 package helloworld.demo.com.godrive;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
@@ -14,7 +11,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -100,7 +96,7 @@ public class Main2Activity extends AppCompatActivity
 
         } else if (id == R.id.item3) {
 
-            startActivity(new Intent(Main2Activity.this,UpdateProfile.class));
+            startActivity(new Intent(Main2Activity.this,UpdateProfile1.class));
 
         } else if (id == R.id.item4) {
 
@@ -176,10 +172,5 @@ public class Main2Activity extends AppCompatActivity
 
     }
 
-//    @Override
-//    public void onAttachFragment(Fragment fragment) {
-//        super.onAttachFragment(fragment);
-//        Activity activity = (Activity)context;
-//        logOutListener = (OnLogoutListener)activity;
-//    }
+
 }

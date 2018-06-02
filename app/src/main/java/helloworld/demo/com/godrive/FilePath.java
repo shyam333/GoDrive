@@ -1,19 +1,16 @@
 package helloworld.demo.com.godrive;
-
+import android.annotation.TargetApi;
 import android.content.ContentUris;
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
-import android.provider.DocumentsContract;
-import android.database.Cursor;
 import android.os.Environment;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.annotation.RequiresApi;
-
 /**
- * Created by shyamramesh on 01/06/18.
+ * Created by shyamramesh on 02/06/18.
  */
-
 
 
 public class FilePath
@@ -26,7 +23,7 @@ public class FilePath
      * @return path of the selected image file from gallery
      */
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     public static String getPath(final Context context, final Uri uri)
     {
         //check here to KITKAT or new version
@@ -161,3 +158,4 @@ public class FilePath
         return "com.google.android.apps.photos.content".equals(uri.getAuthority());
     }
 }
+

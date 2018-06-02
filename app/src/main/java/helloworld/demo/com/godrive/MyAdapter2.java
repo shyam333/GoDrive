@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +36,6 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
 
     private List<ListItem>listItem = new ArrayList<>();
     Context context;
-    public static final String My_Pref = "canditate_id";
 
     public MyAdapter2(List<ListItem> listItem, Context context) {
         this.listItem = listItem;
@@ -56,10 +54,20 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
         ListItem listItems = listItem.get(position);
         holder.title.setText(listItems.getJob());
         holder.category.setText(listItems.getCategory());
-        holder.experience.setText(listItems.getExpfrom()+ "-" +listItems.getExpto());
+        if(listItems.getExpto() != null) {
+            holder.experience.setText(listItems.getExpfrom() + "-" + listItems.getExpto());
+        }
+        else {
+            holder.experience.setText(listItems.getExpfrom());
+        }
         holder.vacancy.setText(listItems.getPositions());
         holder.location.setText(listItems.getLocation());
-        holder.salary.setText(listItems.getSalaryfrom()+ "-" +listItems.getSalaryto());
+        if(listItems.getSalaryto() != null) {
+            holder.salary.setText(listItems.getSalaryfrom() + "-" + listItems.getSalaryto());
+        }
+        else {
+            holder.salary.setText(listItems.getSalaryfrom());
+        }
         holder.description.setText(listItems.getDescription());
         holder.skills.setText(listItems.getSkills());
         holder.education.setText(listItems.getEducation());
@@ -81,8 +89,8 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
 
             title = (TextView)v.findViewById(R.id.job);
             category = (TextView)v.findViewById(R.id.category);
-            experience = (TextView)v.findViewById(R.id.txt1);
-            vacancy = (TextView)v.findViewById(R.id.txt2);
+            experience = (TextView)v.findViewById(R.id.edt1);
+            vacancy = (TextView)v.findViewById(R.id.edt2);
             location = (TextView)v.findViewById(R.id.newusertxt);
             salary = (TextView)v.findViewById(R.id.txt4);
             description = (TextView) v.findViewById(R.id.txt6);

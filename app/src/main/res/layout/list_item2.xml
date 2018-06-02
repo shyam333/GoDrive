@@ -48,7 +48,7 @@
             tools:ignore="UnknownId" />
 
         <TextView
-            android:id="@+id/txt1"
+            android:id="@+id/edt1"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView3"
@@ -64,17 +64,17 @@
             android:layout_height="30dp"
             android:layout_alignLeft="@+id/imageView3"
             android:layout_alignStart="@+id/imageView3"
-            android:layout_below="@+id/txt1"
+            android:layout_below="@+id/edt1"
             android:layout_marginTop="15dp"
             app:srcCompat="@mipmap/ic_launcher" />
 
         <TextView
-            android:id="@+id/txt2"
+            android:id="@+id/edt2"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView4"
-            android:layout_alignLeft="@+id/txt1"
-            android:layout_alignStart="@+id/txt1"
+            android:layout_alignLeft="@+id/edt1"
+            android:layout_alignStart="@+id/edt1"
             android:text="Vacancies" />
 
         <ImageView
@@ -83,7 +83,7 @@
             android:layout_height="30dp"
             android:layout_alignLeft="@+id/imageView4"
             android:layout_alignStart="@+id/imageView4"
-            android:layout_below="@+id/txt2"
+            android:layout_below="@+id/edt2"
             android:layout_marginTop="12dp"
             app:srcCompat="@mipmap/ic_launcher" />
 
@@ -92,8 +92,8 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView5"
-            android:layout_alignLeft="@+id/txt2"
-            android:layout_alignStart="@+id/txt2"
+            android:layout_alignLeft="@+id/edt2"
+            android:layout_alignStart="@+id/edt2"
             android:text="location"/>
 
         <ImageView

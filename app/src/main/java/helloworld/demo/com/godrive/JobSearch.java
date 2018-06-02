@@ -30,14 +30,13 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.jobsearch);
 
-        category = (TextView)findViewById(R.id.txt1);
-        location = (TextView)findViewById(R.id.txt2);
+        category = (TextView)findViewById(R.id.edt1);
+        location = (TextView)findViewById(R.id.edt2);
         experience = (TextView)findViewById(R.id.newusertxt);
         renumeration = (TextView)findViewById(R.id.txt4);
         spin1 = (Spinner)findViewById(R.id.spinner1);
         spin2 = (Spinner)findViewById(R.id.spinner2);
-//        spin3 = (Spinner)findViewById(R.id.spinner3);
-//        spin4 = (Spinner)findViewById(R.id.spinner4);
+
         autoComplete1 = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView1);
         autoComplete2 = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
         jobs = getResources().getStringArray(R.array.jobnames);
@@ -51,13 +50,6 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
         spin1.setOnItemSelectedListener(this);
         spin2.setAdapter(adapter1);
         spin2.setOnItemSelectedListener(this);
-
-//        ArrayAdapter<CharSequence>adapter2 = ArrayAdapter.createFromResource(getApplicationContext(),R.array.expected_salary,android.R.layout.simple_spinner_item);
-//        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spin3.setAdapter(adapter2);
-//        spin3.setOnItemSelectedListener(this);
-//        spin4.setAdapter(adapter2);
-//        spin4.setOnItemSelectedListener(this);
 
         ArrayAdapter<String>arrayAdapter1 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,jobs);
         autoComplete1.setAdapter(arrayAdapter1);
