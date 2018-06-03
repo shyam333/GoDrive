@@ -88,7 +88,7 @@ public class Main2Activity extends AppCompatActivity
 
         if (id == R.id.item1) {
             // Handle the camera action
-
+            startActivity(new Intent(Main2Activity.this,Main2Activity.class));
 
         } else if (id == R.id.item2) {
 
@@ -101,6 +101,17 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.item4) {
 
             startActivity(new Intent(Main2Activity.this,Appliedjobs.class));
+
+        } else if (id == R.id.item5) {
+
+            startActivity(new Intent(Main2Activity.this,Setting.class));
+
+        } else if (id == R.id.item6) {
+
+            startActivity(new Intent(Main2Activity.this,Faqs.class));
+
+        } else if (id == R.id.item7) {
+            startActivity(new Intent(Main2Activity.this,Feedback.class));
         }
         else if(id == R.id.item10) {
 

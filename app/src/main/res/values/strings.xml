@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">GoDrive</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_main2">My GoDrive Home</string>
+    <string name="search">Search For</string>
+    <string name="detail">Job Detail</string>
+    <string name="update">Edit Profile</string>
+    <string name="applied">Apply Jobs</string>
+    <string name="settings">Settings</string>
+    <string name="faqs">FAQs</string>
+    <string name="about">About Us</string>
+    <string name="help">Contact Us</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -9,6 +17,24 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="q1">
+        How many jobs can i apply to in a day?
+    </string>
+    <string name="ans1">
+        You can apply to 50 jobs in one day.
+    </string>
+    <string name="q2">
+        How many jobs can i apply in a month?
+    </string>
+    <string name="ans2">
+        You can apply to 150 jobs in a month.
+    </string>
+    <string name="q3">
+        When does the apply limit get reset?
+    </string>
+    <string name="ans3">
+        The apply limit is reset on the 1st day of every month.
+    </string>
 
     <string-array name="experience_years">
         <item>0</item>
