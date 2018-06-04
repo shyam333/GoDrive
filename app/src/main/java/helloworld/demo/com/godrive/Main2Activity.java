@@ -2,7 +2,9 @@ package helloworld.demo.com.godrive;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
@@ -34,14 +36,8 @@ public class Main2Activity extends AppCompatActivity
     List<ListItem> listItem = new ArrayList<>();
     RecyclerView.Adapter adapter;
     RecyclerView recyclerView;
-    //Context context;
-  //  OnLogoutListener logOutListener;
+    String jobid;
 
-
-//    public interface OnLogoutListener
-//    {
-//        public void logOutPerformed();
-//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,9 +61,7 @@ public class Main2Activity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
     }
-
 
 
     @Override
@@ -157,6 +151,7 @@ public class Main2Activity extends AppCompatActivity
                                         o.getString("location_name"),
                                         o.getString("keyskills"),
                                         o.getString("job_description")
+
                                 );
                                 listItem.add(item);
                             }

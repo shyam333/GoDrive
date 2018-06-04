@@ -12,16 +12,16 @@
 
         <item
             android:id="@+id/item2"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/search"
             android:title="Search Jobs" />
         <item
             android:id="@+id/item3"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/update"
             android:title="Update Profile" />
 
         <item
             android:id="@+id/item4"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/applied"
             android:title="Applied Jobs" />
 
         <item
@@ -55,7 +55,7 @@
 
         <item
             android:id="@+id/item10"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/logout"
             android:title="Sign Out" />
 
 

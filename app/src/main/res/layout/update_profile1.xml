@@ -55,6 +55,8 @@
 
     <Button
         android:id="@+id/btn"
+        android:textColor="@color/white"
+        android:background="@color/blue"
         android:onClick="nextPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

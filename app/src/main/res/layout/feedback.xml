@@ -29,14 +29,16 @@
 
     <Button
         android:id="@+id/btn"
-        android:onClick="sendFeedback"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edt"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="57dp"
-        android:text="SEND FEEDBACK" />
+        android:background="@color/blue"
+        android:onClick="sendFeedback"
+        android:text="SEND FEEDBACK"
+        android:textColor="@android:color/white" />
 </RelativeLayout>

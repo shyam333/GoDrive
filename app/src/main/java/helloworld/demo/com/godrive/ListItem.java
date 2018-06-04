@@ -21,13 +21,11 @@ public class ListItem extends AppCompatActivity {
     private String education;
     private String contactperson;
     private String email;
+    private String jobid;
 
 
 //private String imageUrl;
 
-
-    public ListItem() {
-    }
 
     public ListItem(String job, String category, String expfrom, String expto, String location, String skills, String description) {
         this.job = job;
@@ -39,7 +37,7 @@ public class ListItem extends AppCompatActivity {
         this.description = description;
     }
 
-    public ListItem(String job, String category, String expfrom, String expto, String positions, String location, String salaryfrom, String salaryto, String description, String skills, String education, String contactperson, String email) {
+    public ListItem(String job, String category, String expfrom, String expto, String positions, String location, String salaryfrom, String salaryto, String description, String skills, String education, String contactperson, String email,String jobid) {
         this.job = job;
         this.category = category;
         this.expfrom = expfrom;
@@ -53,9 +51,25 @@ public class ListItem extends AppCompatActivity {
         this.education = education;
         this.contactperson = contactperson;
         this.email = email;
+        this.jobid = jobid;
 
     }
 
+//    public ListItem(String job, String category, String expfrom, String expto, String positions, String location, String description) {
+//        this.job = job;
+//        this.category = category;
+//        this.expfrom = expfrom;
+//        this.expto = expto;
+//        this.positions = positions;
+//        this.location = location;
+//        this.description = description;
+//    }
+
+
+
+    public String getJobid() {
+        return jobid;
+    }
 
     public String getJob() {
         return job;

@@ -40,6 +40,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView3"
-        android:text="Log Out" />
+        android:background="@drawable/buttonshapes"
+        android:text="Log Out"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>

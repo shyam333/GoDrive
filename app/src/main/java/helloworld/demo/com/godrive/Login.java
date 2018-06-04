@@ -110,13 +110,14 @@ public class Login extends AppCompatActivity {
 
                             //Getting User Id
                             JSONObject dataobject = jsonObject.getJSONObject("data");
-                            String userid = dataobject.getString("userid");
+                            String canditateid = dataobject.getString("candidateid");
                             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(Login.this);
                             SharedPreferences.Editor editor = pref.edit();
-                            editor.putString("userid",userid);
+                            editor.putString("canditateid",canditateid);
+                            editor.putString("jobid","173");
                             editor.commit();
 
-                            Log.d("UserId: ",userid);
+                            Log.d("CanditateId: ",canditateid);
 
                             Log.d("response",response.toString());
                            // if(!jsonObject.getBoolean("status")) {

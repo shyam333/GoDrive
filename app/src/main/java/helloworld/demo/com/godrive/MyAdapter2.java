@@ -114,10 +114,11 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
         private void uploadJobToServer() {
 
             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
-            final String s1 = pref.getString("userid","n/a");
+            final String s1 = pref.getString("canditateid","n/a");
+            final String s2 = pref.getString("jobid","n/a");
            // final Model model = new Model();
 
-            final String s2 = title.getText().toString();
+           // final String s2 = pref.getString("jobid","n/a");
 
             StringRequest stringRequest = new StringRequest(Request.Method.POST,
                     Constants.URL_APPLY,
@@ -150,7 +151,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
                 protected Map<String,String> getParams() throws AuthFailureError {
 
                     Map<String,String>params = new HashMap<>();
-                    params.put("candidate_id",s1);
+                    params.put("candidateid",s1);
                     params.put("job_id",s2);
                     return params;
                 }

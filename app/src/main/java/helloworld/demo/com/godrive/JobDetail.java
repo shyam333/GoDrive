@@ -61,6 +61,7 @@ public class JobDetail extends AppCompatActivity {
 
                             Intent intent = getIntent();
                             String jobtitle = intent.getStringExtra("key1");
+                           // String jobid = intent.getStringExtra("key2");
                             JSONObject jsonObject = new JSONObject(s);
                             JSONArray array = jsonObject.getJSONArray("data");
 
@@ -81,7 +82,8 @@ public class JobDetail extends AppCompatActivity {
                                         o.getString("keyskills"),
                                         o.getString("education"),
                                         o.getString("contact_person"),
-                                        o.getString("email_address")
+                                        o.getString("email_address"),
+                                        o.getString("id")
                                 );
 
                                 if(o.getString("job_title").equals(jobtitle)) {
