@@ -150,7 +150,8 @@ public class Main2Activity extends AppCompatActivity
                                         o.getString("experience_to"),
                                         o.getString("location_name"),
                                         o.getString("keyskills"),
-                                        o.getString("job_description")
+                                        o.getString("job_description"),
+                                        o.getString("id")
 
                                 );
                                 listItem.add(item);

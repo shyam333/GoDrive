@@ -113,7 +113,7 @@ public class Login extends AppCompatActivity {
                             String canditateid = dataobject.getString("candidateid");
                             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(Login.this);
                             SharedPreferences.Editor editor = pref.edit();
-                            editor.putString("canditateid",canditateid);
+                            editor.putString("candidateid",canditateid);
                             editor.putString("jobid","173");
                             editor.commit();
 

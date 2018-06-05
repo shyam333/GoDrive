@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -88,9 +89,11 @@ public class UpdateProfile2 extends AppCompatActivity {
         final String s4 = preferences.getString("s4","n/a");
         final String s5 = preferences.getString("s5","n/a");
         final String s6 = preferences.getString("s6","n/a");
+        final String s7 = preferences.getString("s7","n/a");
+
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                Constants.URL_UPLOAD,
+                Constants.URL_UPDATE_PROFILE,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -98,6 +101,7 @@ public class UpdateProfile2 extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String s = jsonObject.getString("status");
+                            Log.d("RESPONSE:",response.toString());
                             if(!s.equals("400")) {
                                 Toast.makeText(getApplicationContext(), "Upload Successful", Toast.LENGTH_LONG).show();
                                 //Toast.makeText(getApplicationContext(), jsonObject.getString("status_message"), Toast.LENGTH_LONG).show();
@@ -118,18 +122,19 @@ public class UpdateProfile2 extends AppCompatActivity {
             @Override
             protected Map<String,String> getParams() throws AuthFailureError {
                 Map<String,String>params = new HashMap<>();
-                params.put("name",s1);
-                params.put("number",s2);
-                params.put("location",s3);
-                params.put("education",s4);
-                params.put("skills",s5);
-                params.put("experience",s6);
+                params.put("candidate_id",s1);
+                params.put("candidate_name",s2);
+                params.put("contact_no",s3);
+                params.put("location_id",s4);
+                params.put("education",s5);
+                params.put("keyskills",s6);
+                params.put("experience",s7);
 
-                params.put("image",imageToString(bitmap));
+                params.put("photo",imageToString(bitmap));
 
                 path = FilePath.getPath(UpdateProfile2.this,filePath);
 
-                params.put("file",path);
+                params.put("resume",path);
 
                 return params;
             }

@@ -55,15 +55,15 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
         holder.title.setText(listItems.getJob());
         holder.category.setText(listItems.getCategory());
         if(listItems.getExpto() != null) {
-            holder.experience.setText(listItems.getExpfrom() + "-" + listItems.getExpto());
+            holder.experience.setText(listItems.getExpfrom() + "-" + listItems.getExpto() + "Years");
         }
         else {
-            holder.experience.setText(listItems.getExpfrom());
+            holder.experience.setText(listItems.getExpfrom() + " Years");
         }
-        holder.vacancy.setText(listItems.getPositions());
+        holder.vacancy.setText(listItems.getPositions() + " Vacancies");
         holder.location.setText(listItems.getLocation());
         if(listItems.getSalaryto() != null) {
-            holder.salary.setText(listItems.getSalaryfrom() + "-" + listItems.getSalaryto());
+            holder.salary.setText(listItems.getSalaryfrom() + "-" + listItems.getSalaryto() + " Lakhs per Annum");
         }
         else {
             holder.salary.setText(listItems.getSalaryfrom());
@@ -114,7 +114,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
         private void uploadJobToServer() {
 
             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
-            final String s1 = pref.getString("canditateid","n/a");
+            final String s1 = pref.getString("candidateid","n/a");
             final String s2 = pref.getString("jobid","n/a");
            // final Model model = new Model();
 

@@ -11,7 +11,7 @@
         android:layout_alignParentTop="true" >
 
         <TextView
-            android:id="@+id/edt1"
+            android:id="@+id/txt11"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -20,7 +20,7 @@
             />
 
         <TextView
-            android:id="@+id/edt2"
+            android:id="@+id/txt2"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="50dp"

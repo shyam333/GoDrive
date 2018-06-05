@@ -12,13 +12,13 @@
     >
 
     <LinearLayout
-        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
-            android:id="@+id/edt1"
+            android:id="@+id/txt1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Heading"
@@ -27,7 +27,7 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/edt2"
+            android:id="@+id/txt2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Description"
@@ -35,7 +35,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/newusertxt"
+            android:id="@+id/txt3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Experience"
@@ -52,9 +52,18 @@
             android:id="@+id/txt5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="KeySkills"
             android:maxLines="1"
+            android:text="KeySkills"
             android:textAppearance="@style/Base.TextAppearance.AppCompat" />
+
+        <TextView
+            android:id="@+id/txt6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="id"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            android:visibility="gone" />
 
 
     </LinearLayout>

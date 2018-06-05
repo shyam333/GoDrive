@@ -27,7 +27,7 @@ public class ListItem extends AppCompatActivity {
 //private String imageUrl;
 
 
-    public ListItem(String job, String category, String expfrom, String expto, String location, String skills, String description) {
+    public ListItem(String jobTitle, String job_title, String job, String category, String expfrom, String expto, String location) {
         this.job = job;
         this.category = category;
         this.expfrom = expfrom;
@@ -55,16 +55,29 @@ public class ListItem extends AppCompatActivity {
 
     }
 
-//    public ListItem(String job, String category, String expfrom, String expto, String positions, String location, String description) {
-//        this.job = job;
-//        this.category = category;
-//        this.expfrom = expfrom;
-//        this.expto = expto;
-//        this.positions = positions;
-//        this.location = location;
-//        this.description = description;
-//    }
+    public ListItem(String job, String category, String expfrom, String expto, String location, String skills, String description, String jobid) {
 
+        this.job = job;
+        this.category = category;
+        this.expfrom = expfrom;
+        this.expto = expto;
+        this.location = location;
+        this.skills = skills;
+        this.skills = skills;
+        this.description = description;
+        this.jobid = jobid;
+
+    }
+
+    public ListItem(String job, String category, String expfrom, String expto, String location, String skills) {
+
+        this.job = job;
+        this.category = category;
+        this.expfrom = expfrom;
+        this.expto = expto;
+        this.location = location;
+        this.skills = skills;
+    }
 
 
     public String getJobid() {

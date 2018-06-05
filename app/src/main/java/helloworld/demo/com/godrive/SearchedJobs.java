@@ -79,23 +79,15 @@ public class SearchedJobs extends AppCompatActivity {
                                         o.getString("experience_from"),
                                         o.getString("experience_to"),
                                         o.getString("location_name"),
-                                        o.getString("keyskills"),
-                                        o.getString("job_description")
+                                        o.getString("keyskills")
                                 );
                                 if(o.getString("category_name").equals(category))
                                 {
-                                    if(o.getString("location_name").equals(location))
-                                    {
-                                        if(o.getString("experience_from").equals(expfrom))
-                                        {
-                                                listItem.add(item);
-                                        }
-
-                                    }
+                                    listItem.add(item);
                                 }
 
                             }
-                            mAdapter = new MyAdapter1(listItem,getApplicationContext());
+                            mAdapter = new MyAdapter3(listItem,getApplicationContext());
                             recyclerView.setAdapter(mAdapter);
 
                         } catch (JSONException e) {

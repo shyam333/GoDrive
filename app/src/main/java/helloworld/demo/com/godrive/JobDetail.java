@@ -60,7 +60,7 @@ public class JobDetail extends AppCompatActivity {
                             progressDialog.dismiss();
 
                             Intent intent = getIntent();
-                            String jobtitle = intent.getStringExtra("key1");
+                            String jobid = intent.getStringExtra("key1");
                            // String jobid = intent.getStringExtra("key2");
                             JSONObject jsonObject = new JSONObject(s);
                             JSONArray array = jsonObject.getJSONArray("data");
@@ -86,7 +86,7 @@ public class JobDetail extends AppCompatActivity {
                                         o.getString("id")
                                 );
 
-                                if(o.getString("job_title").equals(jobtitle)) {
+                                if(o.getString("id").equals(jobid)) {
                                     listItem.add(item);
                                 }
                             }
