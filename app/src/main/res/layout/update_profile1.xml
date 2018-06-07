@@ -75,7 +75,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/newusertxt"
         android:ems="10"
-        android:hint="Education"
+        android:hint="Industry"
         android:inputType="textPersonName"
          />
 
@@ -90,7 +90,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edt4"
         android:ems="10"
-        android:hint="KeySkills"
+        android:hint="Education"
         android:inputType="textPersonName"
          />
 
@@ -105,8 +105,33 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edt5"
         android:ems="10"
-        android:hint="Experience"
+        android:hint="Keyskills"
         android:inputType="textPersonName"
          />
+
+    <EditText
+        android:id="@+id/edt7"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edt6"
+        android:ems="10"
+        android:hint="Experience"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edt8"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edt7"
+        android:ems="10"
+        android:hint="Current Designation"
+        android:inputType="textPersonName" />
+
 
 </RelativeLayout>

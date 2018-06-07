@@ -24,34 +24,6 @@
             android:icon="@drawable/applied"
             android:title="Applied Jobs" />
 
-        <item
-            android:id="@+id/item5"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Settings" />
-
-
-        <item
-            android:id="@+id/item6"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="FAQs" />
-
-
-        <item
-            android:id="@+id/item7"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Feedback" />
-
-
-
-        <item
-            android:id="@+id/item8"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="About Us" />
-
-        <item
-            android:id="@+id/item9"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Help" />
 
         <item
             android:id="@+id/item10"

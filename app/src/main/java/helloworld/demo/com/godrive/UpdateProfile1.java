@@ -2,16 +2,10 @@ package helloworld.demo.com.godrive;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.MediaStore;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,31 +32,24 @@ public class UpdateProfile1 extends AppCompatActivity{
         experience = (EditText)findViewById(R.id.edt6);
         next = (Button)findViewById(R.id.btn);
 
-        String s1 = name.getText().toString();
-        String s2 = contact.getText().toString();
-        String s3 = location.getText().toString();
-        String s4 = education.getText().toString();
-        String s5 = skills.getText().toString();
-        String s6 = experience.getText().toString();
-
-
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(UpdateProfile1.this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("name",s1);
-        editor.putString("contact",s2);
-        editor.putString("education",s3);
-        editor.putString("skills",s4);
-        editor.putString("experience",s5);
-        editor.putString("experience",s6);
-        editor.commit();
-
-
 
     }
 
     public void nextPage(View view) {
 
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(UpdateProfile1.this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("prf1name",name.getText().toString());
+        editor.putString("prf1contact",contact.getText().toString());
+        editor.putString("prf1location",location.getText().toString());
+        editor.putString("prf1education",education.getText().toString());
+        editor.putString("prf1skills",skills.getText().toString());
+        editor.putString("prf1experience",experience.getText().toString());
+        editor.commit();
+
+
         startActivity(new Intent(UpdateProfile1.this,UpdateProfile2.class));
+
 
     }
 }

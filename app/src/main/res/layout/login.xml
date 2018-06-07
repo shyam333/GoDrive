@@ -1,54 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/blue">
 
-
-    <TextView
-        android:id="@+id/emailtxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="26dp"
-        android:text="UserName" />
 
     <EditText
         android:id="@+id/emailedt"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:hint="User"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/emailtxt"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="171dp"
         android:ems="10"
         android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/passtxt"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/emailedt"
-        android:text="Password" />
-
     <EditText
         android:id="@+id/passedt"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:hint="Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/passtxt"
+        android:layout_centerVertical="true"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -56,19 +34,41 @@
         android:id="@+id/logbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passedt"
+        android:layout_above="@+id/newusertxt"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
         android:text="Login" />
 
     <TextView
         android:id="@+id/newusertxt"
-        android:onClick="goToRegister"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/passedt"
-        android:layout_alignStart="@+id/passedt"
-        android:layout_below="@+id/logbtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="132dp"
+        android:gravity="center"
+        android:onClick="goToRegister"
+        android:textColor="@android:color/white"
         android:text="New User?Register Here" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="205dp"
+        android:text="SaveDetails"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_above="@+id/emailedt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-171dp"
+        android:gravity="center"
+        android:text="Login"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
 </RelativeLayout>

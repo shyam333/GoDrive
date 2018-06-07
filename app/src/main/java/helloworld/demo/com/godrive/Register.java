@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,11 +33,11 @@ import java.util.regex.Matcher;
 
 public class Register extends AppCompatActivity {
 
-    TextView name,email,password;
     EditText nam,mail,pass;
     Button button;
     ProgressDialog progressDialog;
     String namecheck,emailcheck,passwordcheck;
+   // ImageView imageView1,imageView2,imageView3;
 
 
     @Override
@@ -44,13 +45,13 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
-        name = (TextView)findViewById(R.id.namtxt);
-        email = (TextView)findViewById(R.id.emailtxt);
-        password = (TextView)findViewById(R.id.passtxt);
         nam = (EditText)findViewById(R.id.namedt);
         mail = (EditText)findViewById(R.id.mailedt);
         pass = (EditText)findViewById(R.id.passedt);
         button = (Button)findViewById(R.id.button);
+//        imageView1 = (ImageView)findViewById(R.id.img1);
+//        imageView2 = (ImageView)findViewById(R.id.img2);
+//        imageView3 = (ImageView)findViewById(R.id.img3);
         progressDialog = new ProgressDialog(this);
 
         button.setOnClickListener(new View.OnClickListener() {

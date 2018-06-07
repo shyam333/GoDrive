@@ -47,11 +47,9 @@ public class Appliedjobs extends AppCompatActivity {
         loadRecyclerViewData();
 
 
-
-
-        recyclerView = (RecyclerView)findViewById(R.id.rc2);
+        recyclerView = (RecyclerView) findViewById(R.id.rc2);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
     }
 
@@ -64,66 +62,60 @@ public class Appliedjobs extends AppCompatActivity {
         progressDialog.setMessage("Loading Data....!");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
                 Constants.URL_APPLIED_JOBS,
                 new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(String s) {
                         try {
                             progressDialog.dismiss();
-                            
-                             JSONObject jsonObject = new JSONObject(response);
+
+                            JSONObject jsonObject = new JSONObject(s);
                             JSONArray array = jsonObject.getJSONArray("data");
-                            Log.d("response",response.toString());
+
                             //JSONArray array = new JSONArray(s);
                             for (int i = 0; i < array.length(); i++) {
                                 JSONObject o = array.getJSONObject(i);
                                 ListItem item = new ListItem(
-
                                         o.getString("job_title"),
                                         o.getString("category_name"),
                                         o.getString("experience_from"),
                                         o.getString("experience_to"),
-                                        o.getString("no_of_position"),
                                         o.getString("location_name"),
-                                        o.getString("budget_from"),
-                                        o.getString("budget_to"),
-                                        o.getString("job_description"),
                                         o.getString("keyskills"),
-                                        o.getString("education"),
-                                        o.getString("contact_person"),
-                                        o.getString("email_address"),
+                                        o.getString("job_description"),
                                         o.getString("id")
+
                                 );
-
                                 listItem.add(item);
-
                             }
-                            mAdapter = new MyAdapter1(listItem, getApplicationContext());
+                            mAdapter = new MyAdapter3(listItem, getApplicationContext());
                             recyclerView.setAdapter(mAdapter);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
+
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                })
-        {
-        @Override
-        protected Map<String,String> getParams() throws AuthFailureError {
-            Map<String,String>params = new HashMap<>();
-            params.put("candidateid",s);
-            return params;
-        }
-    };
+                }){
+            @Override
+            protected Map<String,String> getParams() throws AuthFailureError {
 
+                Map<String,String>params = new HashMap<>();
+                params.put("candidate_id",s);
+                return params;
+            }
+        };
 
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
-
     }
+
 }
+

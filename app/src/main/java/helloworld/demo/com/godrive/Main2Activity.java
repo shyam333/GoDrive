@@ -96,16 +96,6 @@ public class Main2Activity extends AppCompatActivity
 
             startActivity(new Intent(Main2Activity.this,Appliedjobs.class));
 
-        } else if (id == R.id.item5) {
-
-            startActivity(new Intent(Main2Activity.this,Setting.class));
-
-        } else if (id == R.id.item6) {
-
-            startActivity(new Intent(Main2Activity.this,Faqs.class));
-
-        } else if (id == R.id.item7) {
-            startActivity(new Intent(Main2Activity.this,Feedback.class));
         }
         else if(id == R.id.item10) {
 

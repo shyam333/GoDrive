@@ -27,6 +27,9 @@ public class ListItem extends AppCompatActivity {
 //private String imageUrl;
 
 
+    public ListItem() {
+    }
+
     public ListItem(String jobTitle, String job_title, String job, String category, String expfrom, String expto, String location) {
         this.job = job;
         this.category = category;

@@ -1,68 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        app:srcCompat="@mipmap/ic_launcher" />
-
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/img"
-        android:layout_centerHorizontal="true"
-        android:onClick="openGallery"
-        android:text="Gallery" />
-
-    <TextView
-        android:id="@+id/txt1"
+    <EditText
+        android:id="@+id/edt1"
+        android:hint="Notice Period"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/btn1"
-        android:layout_marginTop="25dp"
-        android:text="Upload Resume" />
+        android:layout_marginTop="11dp" />
 
-    <Button
-        android:id="@+id/btn2"
-        android:onClick="openFile"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+    <EditText
+        android:id="@+id/edt2"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:hint="Negotiable(Option)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/txt1"
-        android:text="Choose File"
-        android:textSize="10sp" />
+        android:layout_below="@+id/edt1" />
+
+    <EditText
+        android:id="@+id/edt3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edt2"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="CTC(Lacs)" />
+
+    <EditText
+        android:id="@+id/edt4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="173dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:hint="ECTC(Lacs)" />
+
+    <EditText
+        android:id="@+id/edt5"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edt4"
+        android:hint="Remarks" />
 
     <Button
-        android:id="@+id/btn3"
-        android:textColor="@color/white"
+        android:id="@+id/btn"
+        android:onClick="nextPage"
         android:background="@color/blue"
-        android:onClick="uploadProfile"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btn1"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/btn1"
-        android:text="Save" />
+        android:layout_centerHorizontal="true"
+        android:text="Next" />
 
-    <TextView
-        android:id="@+id/txt2"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/btn2"
-        android:layout_toRightOf="@+id/btn2"
-        android:gravity="center"
-        android:text="File Name" />
+
 </RelativeLayout>
