@@ -11,12 +11,12 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.error.AuthFailureError;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.SimpleMultiPartRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -57,20 +57,20 @@ public class Appliedjobs extends AppCompatActivity {
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Appliedjobs.this);
         final String s = preferences.getString("candidateid","n/a");
-
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading Data....!");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+
+        SimpleMultiPartRequest stringRequest = new SimpleMultiPartRequest(Request.Method.POST,
                 Constants.URL_APPLIED_JOBS,
                 new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String s) {
+                    public void onResponse(String response) {
                         try {
                             progressDialog.dismiss();
 
-                            JSONObject jsonObject = new JSONObject(s);
+                            JSONObject jsonObject = new JSONObject(response);
                             JSONArray array = jsonObject.getJSONArray("data");
 
                             //JSONArray array = new JSONArray(s);
@@ -96,7 +96,6 @@ public class Appliedjobs extends AppCompatActivity {
                             e.printStackTrace();
                         }
 
-
                     }
                 },
                 new Response.ErrorListener() {
@@ -104,15 +103,10 @@ public class Appliedjobs extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                }){
-            @Override
-            protected Map<String,String> getParams() throws AuthFailureError {
+                });
 
-                Map<String,String>params = new HashMap<>();
-                params.put("candidate_id",s);
-                return params;
-            }
-        };
+        stringRequest.addStringParam("candidateid",s);
+
 
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }

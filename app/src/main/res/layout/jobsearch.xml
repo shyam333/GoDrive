@@ -9,19 +9,22 @@
 
     <TextView
         android:id="@+id/edt1"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="Category" />
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Category"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
     <AutoCompleteTextView
         android:id="@+id/autoCompleteTextView1"
-        android:hint="(Keywords(Software Engineer,Sales Manager,Fresher...)"
+        android:maxLines="1"
+        android:hint="(Keywords(Software Engineer,Sales....)"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_width="match_parent"
@@ -32,15 +35,17 @@
 
     <TextView
         android:id="@+id/edt2"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:textSize="18dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/autoCompleteTextView1"
-        android:text="Location" />
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Location"
+        android:textStyle="bold" />
 
     <AutoCompleteTextView
         android:id="@+id/autoCompleteTextView2"
@@ -55,18 +60,21 @@
 
     <TextView
         android:id="@+id/newusertxt"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:textSize="18dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/autoCompleteTextView2"
-        android:text="Experience" />
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Experience"
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/spinner1"
+        android:layout_marginTop="8dp"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -80,6 +88,7 @@
 
     <TextView
         android:id="@+id/textView5"
+        android:layout_marginRight="24dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/spinner1"
@@ -88,6 +97,7 @@
 
     <Spinner
         android:id="@+id/spinner2"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/newusertxt"
@@ -100,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView5"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="57dp"
         android:background="@drawable/buttonshapes"
         android:text="Search"
         android:textColor="@android:color/white" />

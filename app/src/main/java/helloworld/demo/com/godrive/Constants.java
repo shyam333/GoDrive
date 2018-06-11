@@ -24,13 +24,15 @@ public class Constants extends AppCompatActivity {
     public static final String URL_APPLY = "http://www.godigitell.in/dev/hrportal/apijobapply.php";
 
 
-    public static final String URL_APPLIED_JOBS = "http://www.godigitell.in/dev/hrportal/apijobapplied.php?candidateid=3445749";
+    public static final String URL_APPLIED_JOBS = "http://www.godigitell.in/dev/hrportal/apijobapplied.php";
 
-    public static final String URL_UPDATE_PROFILE = "http://www.godigitell.in/dev/hrportal/apiupdateprofile.php?";
+    public static final String URL_UPDATE_PROFILE = "http://www.godigitell.in/dev/hrportal/apiupdateprofile.php";
+
+    public static final String URL_RETRIEVE_PROFILE = "http://www.godigitell.in/dev/hrportal/apiretriveprofile.php";
 
 
 
 
 
-    public static final String URL_UPLOAD = "http://internetfaqs.net/AndroidPdfUpload/upload.php";
+
 }

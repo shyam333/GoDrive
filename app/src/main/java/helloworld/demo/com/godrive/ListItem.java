@@ -22,6 +22,10 @@ public class ListItem extends AppCompatActivity {
     private String contactperson;
     private String email;
     private String jobid;
+    private String name;
+    private String contact;
+    private String experience;
+
 
 
 //private String imageUrl;
@@ -82,6 +86,26 @@ public class ListItem extends AppCompatActivity {
         this.skills = skills;
     }
 
+    public ListItem(String name, String contact, String education, String skills, String experience) {
+
+        this.name = name;
+        this.contact = contact;
+        this.education = education;
+        this.skills = skills;
+        this.experience = experience;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public String getExperience() {
+        return experience;
+    }
 
     public String getJobid() {
         return jobid;

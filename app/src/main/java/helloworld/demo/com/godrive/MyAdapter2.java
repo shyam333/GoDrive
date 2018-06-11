@@ -12,11 +12,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.error.AuthFailureError;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.SimpleMultiPartRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,12 +46,24 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item2,parent,false);
+
+
+
         return new MyAdapter2.MyViewHolder(v);
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         ListItem listItems = listItem.get(position);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("title",listItems.getJob());
+        editor.putString("category",listItems.getCategory());
+        editor.apply();
+
         holder.title.setText(listItems.getJob());
         holder.category.setText(listItems.getCategory());
         if(listItems.getExpto() != null) {
@@ -73,6 +85,8 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
         holder.education.setText(listItems.getEducation());
         holder.contactperson.setText(listItems.getContactperson());
         holder.email.setText(listItems.getEmail());
+
+
     }
 
     @Override
@@ -80,9 +94,12 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
         return listItem.size();
     }
 
+
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView title,category,experience,vacancy,location,salary,description,skills,education,contactperson,email;
         Button applybutton;
+
 
         public MyViewHolder(View v) {
             super(v);
@@ -100,6 +117,8 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
             email = (TextView)v.findViewById(R.id.txt16);
             applybutton = (Button)v.findViewById(R.id.btn);
 
+
+
             applybutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -107,6 +126,8 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
                     uploadJobToServer();
                 }
             });
+
+
 
 
         }
@@ -120,7 +141,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
 
            // final String s2 = pref.getString("jobid","n/a");
 
-            StringRequest stringRequest = new StringRequest(Request.Method.POST,
+            SimpleMultiPartRequest stringRequest = new SimpleMultiPartRequest(Request.Method.POST,
                     Constants.URL_APPLY,
                     new Response.Listener<String>() {
                         @Override
@@ -146,18 +167,13 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
                 public void onErrorResponse(VolleyError error) {
                     //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                 }
-            }){
-                @Override
-                protected Map<String,String> getParams() throws AuthFailureError {
-
-                    Map<String,String>params = new HashMap<>();
-                    params.put("candidateid",s1);
-                    params.put("job_id",s2);
-                    return params;
-                }
-            };
+            });
+            stringRequest.addStringParam("candidateid",s1);
+            stringRequest.addStringParam("job_id",s2);
 
             RequestHandler.getInstance(context).addToRequestQueue(stringRequest);
         }
     }
+
+
 }

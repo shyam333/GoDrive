@@ -12,8 +12,8 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.SimpleMultiPartRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -53,7 +53,7 @@ public class SearchedJobs extends AppCompatActivity {
         progressDialog.setMessage("Loading Data....!");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET,
+        SimpleMultiPartRequest stringRequest = new SimpleMultiPartRequest(Request.Method.GET,
                 Constants.URL_JOBS,
                 new Response.Listener<String>() {
                     @Override

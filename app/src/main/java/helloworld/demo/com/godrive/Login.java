@@ -16,19 +16,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-
+import com.android.volley.error.AuthFailureError;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.SimpleMultiPartRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -45,12 +40,12 @@ public class Login extends AppCompatActivity {
     SharedPreferences mPreferences;
     CheckBox checkBox;
     SharedPreferences.Editor mEditor;
-   // ImageView imageView1,imageView2;
+    ImageView imageView1,imageView2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.login_new);
 
 
         // newuser = (TextView)findViewById(R.id.newusertxt);
@@ -58,8 +53,8 @@ public class Login extends AppCompatActivity {
         pass = (EditText) findViewById(R.id.passedt);
         button = (Button) findViewById(R.id.logbtn);
         checkBox = (CheckBox)findViewById(R.id.checkBox);
-//        imageView1 = (ImageView)findViewById(R.id.img1);
-//        imageView2 = (ImageView)findViewById(R.id.img2);
+        imageView1 = (ImageView)findViewById(R.id.img1);
+        imageView2 = (ImageView)findViewById(R.id.img2);
         progressDialog = new ProgressDialog(this);
 
         mPreferences = getSharedPreferences("helloworld.demo.com.godrive", Context.MODE_PRIVATE);
@@ -138,7 +133,7 @@ public class Login extends AppCompatActivity {
         progressDialog.setMessage("Please Wait....");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+        SimpleMultiPartRequest stringRequest = new SimpleMultiPartRequest(Request.Method.POST,
                 Constants.URL_LOGIN,
                 new Response.Listener<String>() {
                     @Override
@@ -183,15 +178,11 @@ public class Login extends AppCompatActivity {
                 progressDialog.hide();
                 //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
-            @Override
-            protected Map<String,String> getParams() throws AuthFailureError {
-                Map<String,String>params = new HashMap<>();
-                params.put("uname",s1);
-                params.put("pass",s2);
-                return params;
-            }
-        };
+        });
+
+
+        stringRequest.addStringParam("uname",s1);
+        stringRequest.addStringParam("pass",s2);
 
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }

@@ -6,6 +6,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+import net.gotev.uploadservice.MultipartUploadRequest;
+
 /**
  * Created by shyamramesh on 16/05/18.
  */
@@ -44,4 +46,6 @@ public class RequestHandler {
     {
         getRequestQueue().add(req);
     }
+
+
 }

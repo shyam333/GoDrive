@@ -2,17 +2,20 @@ package helloworld.demo.com.godrive;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.SimpleMultiPartRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -43,6 +46,8 @@ public class JobDetail extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
+
+
     }
 
     private void loadRecyclerViewData() {
@@ -51,7 +56,7 @@ public class JobDetail extends AppCompatActivity {
         progressDialog.setMessage("Loading Data....!");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET,
+        SimpleMultiPartRequest stringRequest = new SimpleMultiPartRequest(Request.Method.GET,
                 Constants.URL_JOBS,
                 new Response.Listener<String>() {
                     @Override
@@ -101,7 +106,7 @@ public class JobDetail extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -110,5 +115,22 @@ public class JobDetail extends AppCompatActivity {
 
 
     }
+
+    public void shareMethod(View view)
+    {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(JobDetail.this);
+        String title = preferences.getString("title","n/a");
+        String category = preferences.getString("category","n/a");
+
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBody = "GODRIVE JOBS" + "\n" + "Title: " + title + "\n" + "Category:" + category;
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,"Subject Here");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT,shareBody);
+        startActivity(Intent.createChooser(sharingIntent,"Share via"));
+
+    }
+
+
 }
 

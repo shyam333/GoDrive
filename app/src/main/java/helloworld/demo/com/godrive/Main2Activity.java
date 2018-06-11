@@ -19,8 +19,8 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.SimpleMultiPartRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -36,7 +36,6 @@ public class Main2Activity extends AppCompatActivity
     List<ListItem> listItem = new ArrayList<>();
     RecyclerView.Adapter adapter;
     RecyclerView recyclerView;
-    String jobid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,7 +118,7 @@ public class Main2Activity extends AppCompatActivity
         progressDialog.setMessage("Loading Data....!");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET,
+        SimpleMultiPartRequest stringRequest = new SimpleMultiPartRequest(Request.Method.GET,
                 Constants.URL_JOBS,
                 new Response.Listener<String>() {
                     @Override
@@ -159,7 +158,7 @@ public class Main2Activity extends AppCompatActivity
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
                     }
                 });
 

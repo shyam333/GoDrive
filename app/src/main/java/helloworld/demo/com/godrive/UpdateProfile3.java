@@ -1,13 +1,21 @@
 package helloworld.demo.com.godrive;
 
+import android.annotation.TargetApi;
+import android.content.ContentUris;
+import android.content.Context;
+import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
@@ -17,11 +25,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.SimpleMultiPartRequest;
+import com.android.volley.toolbox.Volley;
+
+import net.gotev.uploadservice.MultipartUploadRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,13 +50,13 @@ public class UpdateProfile3 extends AppCompatActivity {
 
     private int PICK_IMAGE_REQUEST = 1;
     private int PICK_PDF_REQUEST = 1;
-    private Uri filePath;
+    private String filePath;
 
     ImageView imageView;
     TextView textView,textView2;
     Button gall,choose,save;
-    Bitmap bitmap;
-    String path;
+   // Bitmap bitmap;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,46 +70,84 @@ public class UpdateProfile3 extends AppCompatActivity {
         choose = (Button)findViewById(R.id.btn2);
         save = (Button)findViewById(R.id.btn3);
 
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadProfile(filePath);
+            }
+        });
+
     }
 
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            Uri uri = data.getData();
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                imageView.setImageBitmap(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+//        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+//            Uri picUri = data.getData();
+//            filePath = getPath(picUri);
+//            imageView.setImageURI(picUri);
+//        }
         if(requestCode == PICK_PDF_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            filePath = data.getData();
+            Uri pdfUri = data.getData();
+            filePath = getPath(pdfUri);
         }
 
     }
 
-    public void uploadProfile(View view) {
+
+
+    private String getPath(Uri contentUri)
+    {
+       String[] proj = {MediaStore.Images.Media.DATA};
+        CursorLoader loader = new CursorLoader(getApplicationContext(),contentUri,proj,null,null,null);
+        Cursor cursor = loader.loadInBackground();
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        String result = cursor.getString(column_index);
+        cursor.close();
+        return result;
+    }
+
+//    @TargetApi(Build.VERSION_CODES.KITKAT)
+//    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+//    private String getPdfPath(Uri uri)
+//    {
+//        final String id = DocumentsContract.getDocumentId(uri);
+//        final Uri contentUri = ContentUris.withAppendedId(
+//
+//                Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+//
+//        String[] projection = { MediaStore.Images.Media.DATA };
+//        Cursor cursor = getContentResolver().query(contentUri,projection,null,null,null);
+//        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+//        cursor.moveToFirst();
+//        return cursor.getString(column_index);
+//
+//    }
+
+
+    public void uploadProfile(final String imagePath) {
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(UpdateProfile3.this);
 
         final String s1 = preferences.getString("candidateid","n/a");
-        //final String s2 = getIntent().getExtras().getString("key4");
         final String s2 = preferences.getString("prf1name","n/a");
         final String s3 = preferences.getString("prf1contact","n/a");
         final String s4 = preferences.getString("prf1location","n/a");
         final String s5 = preferences.getString("prf1education","n/a");
         final String s6 = preferences.getString("prf1skills","n/a");
         final String s7 = preferences.getString("prf1experience","n/a");
-        final String s8 = preferences.getString("prf2notice","n/a");
-        final String s9 = preferences.getString("prf2negotiable","n/a");
-        final String s10 = preferences.getString("prf2ctc","n/a");
-        final String s11 = preferences.getString("prf2ectc","n/a");
-        final String s12 = preferences.getString("prf2remarks","n/a");
+        final String s8 = preferences.getString("prf2designation","n/a");
+        final String s9 = preferences.getString("prf2notice","n/a");
+        final String s10 = preferences.getString("prf2negotiable","n/a");
+        final String s11 = preferences.getString("prf2ctc","n/a");
+        final String s12 = preferences.getString("prf2ectc","n/a");
+        final String s13 = preferences.getString("prf2remarks","n/a");
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+        SimpleMultiPartRequest multipartRequest = new SimpleMultiPartRequest(Request.Method.POST,
                 Constants.URL_UPDATE_PROFILE,
                 new Response.Listener<String>() {
                     @Override
@@ -120,46 +169,34 @@ public class UpdateProfile3 extends AppCompatActivity {
                         }
                     }
                 }, new Response.ErrorListener() {
+
             @Override
             public void onErrorResponse(VolleyError error) {
                 //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
-            @Override
-            protected Map<String,String> getParams() throws AuthFailureError {
+        });
 
-                Map<String,String>params = new HashMap<>();
+        multipartRequest.addStringParam("candidate_id",s1);
+        multipartRequest.addStringParam("candidate_name",s2);
+        multipartRequest.addStringParam("contact_no",s3);
 
-                    params.put("candidate_id", s1);
+      //  multipartRequest.addFile("picture",imagePath);
 
-                params.put("candidate_name",s2);
-//                params.put("contact_no",s3);
-//                params.put("location_id",s4);
-              //  params.put("education",s2);
-//                params.put("keyskills",s6);
-//                params.put("experience",s7);
+        multipartRequest.addFile("resume",imagePath);
 
-             //   params.put("photo",imageToString(bitmap));
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(multipartRequest);
 
-             //   path = FilePath.getPath(UpdateProfile3.this,filePath);
 
-             //   params.put("resume",path);
-
-                return params;
-            }
-        };
-
-        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }
 
-    private String imageToString(Bitmap bitmap)
-    {
-      //  bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
-        byte[] imgBytes = byteArrayOutputStream.toByteArray();
-        return Base64.encodeToString(imgBytes,Base64.DEFAULT);
-    }
+//    private String imageToString(Bitmap bitmap)
+//    {
+//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+//        byte[] imgBytes = byteArrayOutputStream.toByteArray();
+//        return Base64.encodeToString(imgBytes,Base64.DEFAULT);
+//    }
 
     public void openGallery(View view) {
 
@@ -176,4 +213,6 @@ public class UpdateProfile3 extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);//
         startActivityForResult(Intent.createChooser(intent, "Select File"), PICK_PDF_REQUEST);
     }
+
+
 }

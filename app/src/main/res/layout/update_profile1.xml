@@ -16,11 +16,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/btn1"
-        android:layout_marginTop="11dp" />
+        android:layout_marginTop="16dp" />
 
     <EditText
         android:id="@+id/edt2"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:hint="Contact Number"
@@ -30,16 +30,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edt1" />
 
-    <EditText
-        android:id="@+id/newusertxt"
-        android:hint="Location"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edt2"
-         />
+
 
     <EditText
         android:id="@+id/edt3"
@@ -52,28 +43,30 @@
         android:hint="Location" />
 
 
-
     <Button
         android:id="@+id/btn"
-        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edt7"
+        android:layout_centerHorizontal="true"
         android:background="@color/blue"
         android:onClick="nextPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Next" />
+        android:text="Next"
+        android:textColor="@color/white" />
 
     <EditText
         android:id="@+id/edt4"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/newusertxt"
+        android:layout_below="@+id/edt3"
         android:ems="10"
         android:hint="Industry"
         android:inputType="textPersonName"
@@ -81,7 +74,7 @@
 
     <EditText
         android:id="@+id/edt5"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_width="match_parent"
@@ -96,7 +89,7 @@
 
     <EditText
         android:id="@+id/edt6"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_width="match_parent"
@@ -111,7 +104,7 @@
 
     <EditText
         android:id="@+id/edt7"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_width="match_parent"
@@ -121,17 +114,7 @@
         android:hint="Experience"
         android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/edt8"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edt7"
-        android:ems="10"
-        android:hint="Current Designation"
-        android:inputType="textPersonName" />
+
 
 
 </RelativeLayout>

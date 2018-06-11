@@ -13,12 +13,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.error.AuthFailureError;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.SimpleMultiPartRequest;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,21 +37,21 @@ public class Register extends AppCompatActivity {
     Button button;
     ProgressDialog progressDialog;
     String namecheck,emailcheck,passwordcheck;
-   // ImageView imageView1,imageView2,imageView3;
+    ImageView imageView1,imageView2,imageView3;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register);
+        setContentView(R.layout.register_new);
 
         nam = (EditText)findViewById(R.id.namedt);
         mail = (EditText)findViewById(R.id.mailedt);
         pass = (EditText)findViewById(R.id.passedt);
         button = (Button)findViewById(R.id.button);
-//        imageView1 = (ImageView)findViewById(R.id.img1);
-//        imageView2 = (ImageView)findViewById(R.id.img2);
-//        imageView3 = (ImageView)findViewById(R.id.img3);
+        imageView1 = (ImageView)findViewById(R.id.img1);
+        imageView2 = (ImageView)findViewById(R.id.img2);
+        imageView3 = (ImageView)findViewById(R.id.img3);
         progressDialog = new ProgressDialog(this);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +113,7 @@ public class Register extends AppCompatActivity {
         progressDialog.setMessage("Registering User....");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+        SimpleMultiPartRequest stringRequest = new SimpleMultiPartRequest(Request.Method.POST,
                 Constants.URL_REGISTER,
                 new Response.Listener<String>() {
                     @Override
@@ -153,7 +153,7 @@ public class Register extends AppCompatActivity {
             }
         }){
             @Override
-            protected Map<String,String>getParams() throws AuthFailureError{
+            protected Map<String,String>getParams() throws AuthFailureError {
                 Map<String,String>params = new HashMap<>();
                 params.put("name",s1);
                 params.put("email",s2);

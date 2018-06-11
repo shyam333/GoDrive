@@ -13,7 +13,7 @@ import android.widget.EditText;
 public class UpdateProfile2 extends AppCompatActivity {
 
     Button next;
-    EditText notice,negotiable,ctc,ectc,remarks;
+    EditText designation,notice,negotiable,ctc,ectc,remarks;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,11 +21,12 @@ public class UpdateProfile2 extends AppCompatActivity {
         setContentView(R.layout.update_profile2);
 
         next = (Button)findViewById(R.id.btn);
-        notice = (EditText)findViewById(R.id.edt1);
-        negotiable = (EditText)findViewById(R.id.edt2);
-        ctc = (EditText)findViewById(R.id.edt3);
-        ectc = (EditText)findViewById(R.id.edt4);
-        remarks = (EditText)findViewById(R.id.edt5);
+        designation = (EditText)findViewById(R.id.edt1);
+        notice = (EditText)findViewById(R.id.edt2);
+        negotiable = (EditText)findViewById(R.id.edt3);
+        ctc = (EditText)findViewById(R.id.edt4);
+        ectc = (EditText)findViewById(R.id.edt5);
+        remarks = (EditText)findViewById(R.id.edt6);
 
     }
 
@@ -33,6 +34,7 @@ public class UpdateProfile2 extends AppCompatActivity {
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(UpdateProfile2.this);
         SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("prf2designation",designation.getText().toString());
         editor.putString("prf2notice",notice.getText().toString());
         editor.putString("prf2negotiable",negotiable.getText().toString());
         editor.putString("prf2ctc",ctc.getText().toString());

@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item1,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item3,parent,false);
         return new MyViewHolder(v);
 
     }
@@ -46,13 +47,13 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
         holder.title.setText(listItems.getJob());
         holder.category.setText(listItems.getCategory());
         if(listItems.getExpto() != null) {
-            holder.expfrom.setText("Experience:             " + listItems.getExpfrom() + "-" + listItems.getExpto());
+            holder.expfrom.setText(listItems.getExpfrom() + "-" + listItems.getExpto() + " Years");
         }
         else {
-            holder.expfrom.setText("Experience:             " + listItems.getExpfrom());
+            holder.expfrom.setText("Experience:             " + listItems.getExpfrom() + " Years");
         }
-        holder.location.setText   ("Location:               "+listItems.getLocation());
-        holder.skills.setText     ("KeySkills:              "+listItems.getSkills());
+        holder.location.setText   (listItems.getLocation());
+       // holder.skills.setText     ("KeySkills:              "+listItems.getSkills());
         holder.jobid.setText(listItems.getJobid());
 
 
@@ -66,6 +67,7 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
     public class MyViewHolder extends RecyclerView.ViewHolder
     {
         TextView title,category,expfrom,expto,location,skills,description,jobid;
+        ImageView imageView1,imageView2;
 
         public MyViewHolder(View v) {
             super(v);
@@ -74,8 +76,10 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
             category = (TextView)v.findViewById(R.id.txt2);
             expfrom = (TextView)v.findViewById(R.id.txt3);
             location = (TextView)v.findViewById(R.id.txt4);
-            skills = (TextView)v.findViewById(R.id.txt5);
-            jobid = (TextView)v.findViewById(R.id.txt6);
+          //  skills = (TextView)v.findViewById(R.id.txt5);
+            jobid = (TextView)v.findViewById(R.id.txt5);
+            imageView1 = (ImageView)v.findViewById(R.id.img1);
+            imageView2 = (ImageView)v.findViewById(R.id.img2);
 
             title.setOnClickListener(new View.OnClickListener() {
                 @Override
