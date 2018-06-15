@@ -46,12 +46,12 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
 
         holder.title.setText(listItems.getJob());
         holder.category.setText(listItems.getCategory());
-        if(listItems.getExpto() != null) {
+      //  if(listItems.getExpto() != null) {
             holder.expfrom.setText(listItems.getExpfrom() + "-" + listItems.getExpto() + " Years");
-        }
-        else {
-            holder.expfrom.setText("Experience:             " + listItems.getExpfrom() + " Years");
-        }
+       // }
+      //  else {
+          //  holder.expfrom.setText("Experience:             " + listItems.getExpfrom() + " Years");
+      //  }
         holder.location.setText   (listItems.getLocation());
        // holder.skills.setText     ("KeySkills:              "+listItems.getSkills());
         holder.jobid.setText(listItems.getJobid());
@@ -68,6 +68,7 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
     {
         TextView title,category,expfrom,expto,location,skills,description,jobid;
         ImageView imageView1,imageView2;
+
 
         public MyViewHolder(View v) {
             super(v);
@@ -89,7 +90,7 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
                     SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putString("jobid",value1);
-                    editor.commit();
+                    editor.apply();
 
                     Intent intent = new Intent(context,JobDetail.class);
                     intent.putExtra("key1",value1);

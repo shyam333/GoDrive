@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -23,7 +24,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,19 +40,23 @@ public class Appliedjobs extends AppCompatActivity {
     List<ListItem> listItem = new ArrayList<>();
     RecyclerView.Adapter mAdapter;
     RecyclerView recyclerView;
+    Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_view2);
 
-
         loadRecyclerViewData();
-
 
         recyclerView = (RecyclerView) findViewById(R.id.rc2);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Applied Jobs");
+        setSupportActionBar(toolbar);
 
     }
 
@@ -110,6 +117,7 @@ public class Appliedjobs extends AppCompatActivity {
 
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }
+
 
 }
 

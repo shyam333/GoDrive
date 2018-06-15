@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">GoDrive</string>
-    <string name="checkbox">GoDrive</string>
-    <string name="name">GoDrive</string>
-    <string name="password">GoDrive</string>
+    <string name="checkbox">checkbox</string>
+    <string name="name">name</string>
+    <string name="password">password</string>
 
-    <string name="title_activity_main2">My GoDrive Home</string>
+    <string name="title_activity_main2">Job List</string>
     <string name="search">Search For</string>
     <string name="detail">Job Detail</string>
     <string name="update">Edit Profile</string>

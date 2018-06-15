@@ -47,8 +47,6 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item2,parent,false);
 
-
-
         return new MyAdapter2.MyViewHolder(v);
     }
 
@@ -124,6 +122,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
                 public void onClick(View v) {
 
                     uploadJobToServer();
+                    MyAdapter3.setAppliedDate();
                 }
             });
 
@@ -172,6 +171,8 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
             stringRequest.addStringParam("job_id",s2);
 
             RequestHandler.getInstance(context).addToRequestQueue(stringRequest);
+
+
         }
     }
 

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/toolbar"
+        android:id="@id/toolbar"/>
+
+    <EditText
+        android:id="@+id/edt1"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="92dp"
+        android:hint="Current Designation"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        tools:ignore="NotSibling" />
+
+    <EditText
+        android:id="@+id/edt2"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edt1"
+        android:hint="Notice Period"
+        android:textSize="14sp"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/edt3"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edt2"
+        android:hint="Negotiable(Option)"
+        android:textSize="14sp"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/edt4"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edt3"
+        android:hint="CTC(Lacs Per Annum)"
+        android:textSize="14sp"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/edt5"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edt4"
+        android:hint="ECTC(Lacs Per Annum)"
+        android:textSize="14sp"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/edt6"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edt5"
+        android:hint="Remarks"
+        android:textSize="14sp"
+        android:inputType="textPersonName"/>
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="21dp"
+        android:background="@color/blue"
+        android:onClick="uploadProfile"
+        android:text="Submit"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="376dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edt1"
+        android:layout_alignStart="@+id/edt1"
+        android:layout_marginBottom="-92dp"
+        android:text="Designation"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="378dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edt2"
+        android:layout_alignStart="@+id/edt1"
+        android:layout_marginBottom="-34dp"
+        android:text="Notice Period"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt3"
+        android:layout_width="377dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edt3"
+        android:layout_alignStart="@+id/edt1"
+        android:layout_marginBottom="-34dp"
+        android:text="Negotiable"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt4"
+        android:layout_width="378dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edt4"
+        android:layout_alignStart="@+id/edt1"
+        android:layout_marginBottom="-34dp"
+        android:text="CTC"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt5"
+        android:layout_width="377dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edt5"
+        android:layout_alignStart="@+id/edt1"
+        android:layout_marginBottom="-34dp"
+        android:text="ECTC"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt6"
+        android:layout_width="378dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edt6"
+        android:layout_alignStart="@+id/edt1"
+        android:layout_marginBottom="-34dp"
+        android:text="Remarks"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

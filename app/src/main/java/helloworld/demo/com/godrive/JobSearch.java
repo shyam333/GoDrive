@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,12 +19,12 @@ import android.widget.TextView;
 
 public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-
     Spinner spin1,spin2;
     TextView category,location,experience,renumeration;
     AutoCompleteTextView autoComplete1,autoComplete2;
     String[] jobs,locations;
     Button searchbutton;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,12 +37,17 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
         renumeration = (TextView)findViewById(R.id.txt4);
         spin1 = (Spinner)findViewById(R.id.spinner1);
         spin2 = (Spinner)findViewById(R.id.spinner2);
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
 
         autoComplete1 = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView1);
         autoComplete2 = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
         jobs = getResources().getStringArray(R.array.jobnames);
         locations = getResources().getStringArray(R.array.locations);
         searchbutton = (Button)findViewById(R.id.btn);
+
+
+        toolbar.setTitle("Search Jobs");
+        setSupportActionBar(toolbar);
 
 
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getApplicationContext(),R.array.experience_years,android.R.layout.simple_spinner_item);

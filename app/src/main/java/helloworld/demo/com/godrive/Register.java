@@ -151,16 +151,11 @@ public class Register extends AppCompatActivity {
                 progressDialog.hide();
                 //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
-            @Override
-            protected Map<String,String>getParams() throws AuthFailureError {
-                Map<String,String>params = new HashMap<>();
-                params.put("name",s1);
-                params.put("email",s2);
-                params.put("pass",s3);
-                return params;
-            }
-        };
+        });
+
+        stringRequest.addStringParam("name",s1);
+        stringRequest.addStringParam("email",s2);
+        stringRequest.addStringParam("pass",s3);
 
             RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }

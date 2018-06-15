@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
@@ -38,7 +39,7 @@ public class JobDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recycler_view2);
+        setContentView(R.layout.recycler_view3);
 
         loadRecyclerViewData();
 
@@ -95,6 +96,7 @@ public class JobDetail extends AppCompatActivity {
                                     listItem.add(item);
                                 }
                             }
+
                             mAdapter = new MyAdapter2(listItem,getApplicationContext());
                             recyclerView.setAdapter(mAdapter);
 

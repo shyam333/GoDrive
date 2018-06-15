@@ -1,11 +1,14 @@
 package helloworld.demo.com.godrive;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -16,6 +19,8 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
@@ -42,15 +47,20 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static helloworld.demo.com.godrive.UpdateProfile3.RealPathUtil.getPath;
+
 /**
  * Created by shyamramesh on 02/06/18.
  */
 
 public class UpdateProfile3 extends AppCompatActivity {
 
+    private static final int MY_PERMISSIONS_REQUEST_READ_MEDIA = 3;
     private int PICK_IMAGE_REQUEST = 1;
-    private int PICK_PDF_REQUEST = 1;
+    private int PICK_PDF_REQUEST = 2;
+
     private String filePath;
+    //Context context;
 
     ImageView imageView;
     TextView textView,textView2;
@@ -70,6 +80,14 @@ public class UpdateProfile3 extends AppCompatActivity {
         choose = (Button)findViewById(R.id.btn2);
         save = (Button)findViewById(R.id.btn3);
 
+//        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+//
+//        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST_READ_MEDIA);
+//        } else {
+//            readDataExternal();
+//        }
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,39 +95,113 @@ public class UpdateProfile3 extends AppCompatActivity {
             }
         });
 
+
     }
 
+//    private void readDataExternal() {
+//
+//        Intent intent = new Intent();
+//        intent.setType("image/*");
+//        intent.setAction(Intent.ACTION_GET_CONTENT);//
+//        startActivityForResult(Intent.createChooser(intent, "Select File"), PICK_IMAGE_REQUEST);
+//
+//
+//    }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+//        switch (requestCode) {
+//            case MY_PERMISSIONS_REQUEST_READ_MEDIA:
+//                if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+//                    readDataExternal();
+//                }
+//                break;
+//
+//            default:
+//                break;
+//        }
+//    }
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-//        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-//            Uri picUri = data.getData();
-//            filePath = getPath(picUri);
-//            imageView.setImageURI(picUri);
+        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri picUri = data.getData();
+
+            filePath = RealPathUtil.getPath(getApplicationContext(),picUri);
+           // filePath = getPath(getApplicationContext(),picUri);
+            imageView.setImageURI(picUri);
+        }
+//        if(requestCode == PICK_PDF_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+//            Uri pdfUri = data.getData();
+//            filePath = getPath(pdfUri);
 //        }
-        if(requestCode == PICK_PDF_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            Uri pdfUri = data.getData();
-            filePath = getPath(pdfUri);
+
+    }
+
+
+
+    public static class RealPathUtil {
+
+        @SuppressLint("NewApi")
+        public static String getPath(Context context, Uri uri){
+            String filePath = "";
+            String wholeID = DocumentsContract.getDocumentId(uri);
+
+            // Split at colon, use second item in the array
+            String id = wholeID.split(":")[1];
+
+            String[] column = { MediaStore.Images.Media.DATA };
+
+            // where id is equal to
+            String sel = MediaStore.Images.Media._ID + "=?";
+
+            Cursor cursor = context.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                    column, sel, new String[]{ id }, null);
+
+            int columnIndex = cursor.getColumnIndex(column[0]);
+
+            if (cursor.moveToFirst()) {
+                filePath = cursor.getString(columnIndex);
+            }
+            cursor.close();
+            return filePath;
         }
 
+
+
+
+
     }
 
+//    public String getPath(Context context, Uri contentUri) {
+//        Cursor cursor = null;
+//        try {
+//            String[] proj = { MediaStore.Images.Media.DATA };
+//            cursor = context.getContentResolver().query(contentUri,  proj, null, null, null);
+//            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+//            cursor.moveToFirst();
+//            return cursor.getString(column_index);
+//        } finally {
+//            if (cursor != null) {
+//                cursor.close();
+//            }
+//        }
+//    }
 
-
-    private String getPath(Uri contentUri)
-    {
-       String[] proj = {MediaStore.Images.Media.DATA};
-        CursorLoader loader = new CursorLoader(getApplicationContext(),contentUri,proj,null,null,null);
-        Cursor cursor = loader.loadInBackground();
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        String result = cursor.getString(column_index);
-        cursor.close();
-        return result;
-    }
+//    private String getPath(Uri contentUri)
+//    {
+//       String[] proj = {MediaStore.Images.Media.DATA};
+//        CursorLoader loader = new CursorLoader(getApplicationContext(),contentUri,proj,null,null,null);
+//        Cursor cursor = loader.loadInBackground();
+//        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+//        cursor.moveToFirst();
+//        String result = cursor.getString(column_index);
+//        cursor.close();
+//        return result;
+//    }
 
 //    @TargetApi(Build.VERSION_CODES.KITKAT)
 //    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -180,16 +272,16 @@ public class UpdateProfile3 extends AppCompatActivity {
         multipartRequest.addStringParam("candidate_name",s2);
         multipartRequest.addStringParam("contact_no",s3);
 
-      //  multipartRequest.addFile("picture",imagePath);
+        multipartRequest.addFile("picture",imagePath);
 
-        multipartRequest.addFile("resume",imagePath);
+      //  multipartRequest.addFile("resume",imagePath);
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(multipartRequest);
 
 
     }
-
+//
 //    private String imageToString(Bitmap bitmap)
 //    {
 //        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

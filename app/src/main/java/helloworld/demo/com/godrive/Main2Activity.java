@@ -79,11 +79,8 @@ public class Main2Activity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.item1) {
-            // Handle the camera action
-            startActivity(new Intent(Main2Activity.this,Main2Activity.class));
 
-        } else if (id == R.id.item2) {
+        if (id == R.id.item2) {
 
             startActivity(new Intent(Main2Activity.this,JobSearch.class));
 

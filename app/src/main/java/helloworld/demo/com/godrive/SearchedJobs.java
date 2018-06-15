@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -32,6 +33,8 @@ public class SearchedJobs extends AppCompatActivity {
     List<ListItem> listItem = new ArrayList<>();
     RecyclerView.Adapter mAdapter;
     RecyclerView recyclerView;
+    Toolbar toolbar;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,7 +47,9 @@ public class SearchedJobs extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
-
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Job List");
+        setSupportActionBar(toolbar);
     }
 
     private void loadRecyclerViewData() {
@@ -79,7 +84,9 @@ public class SearchedJobs extends AppCompatActivity {
                                         o.getString("experience_from"),
                                         o.getString("experience_to"),
                                         o.getString("location_name"),
-                                        o.getString("keyskills")
+                                        o.getString("keyskills"),
+                                        o.getString("job_description"),
+                                        o.getString("id")
                                 );
                                 if(o.getString("category_name").equals(category))
                                 {
@@ -87,7 +94,7 @@ public class SearchedJobs extends AppCompatActivity {
                                 }
 
                             }
-                            mAdapter = new MyAdapter3(listItem,getApplicationContext());
+                            mAdapter = new MyAdapter1(listItem,getApplicationContext());
                             recyclerView.setAdapter(mAdapter);
 
                         } catch (JSONException e) {

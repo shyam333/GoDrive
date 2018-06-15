@@ -83,7 +83,7 @@ public class Login extends AppCompatActivity {
             mEditor.commit();
 
             String s2 = pass.getText().toString();
-            mEditor.putString(getString(R.string.name), s2);
+            mEditor.putString(getString(R.string.password), s2);
             mEditor.commit();
 
         }
