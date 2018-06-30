@@ -14,12 +14,15 @@ import android.widget.TextView;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
 
     private List<ListItem>listItem = new ArrayList<>();
     Context context;
+   // Date currentTime;
+
 
     public MyAdapter3(List<ListItem> listItem,Context context) {
 
@@ -32,8 +35,6 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item4,parent,false);
-
-
         return new MyViewHolder(v);
 
     }
@@ -42,10 +43,13 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         ListItem listItems = listItem.get(position);
-
+//        Calendar calendar = Calendar.getInstance();
+//        String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
+       // currentTime = Calendar.getInstance().getTime();
         holder.title.setText(listItems.getJob());
         holder.category.setText(listItems.getCategory());
         holder.jobid.setText(listItems.getJobid());
+        holder.date.setText("Applied on " + listItems.getApplieddate());
 
     }
 
@@ -54,15 +58,12 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
         return listItem.size();
     }
 
-    public static void setAppliedDate() {
-    }
 
     public class MyViewHolder extends RecyclerView.ViewHolder
     {
        // TextView title,category,experience,location,skills;
         TextView title,category,date,jobid;
-        Calendar calendar = Calendar.getInstance();
-        String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
+
 
         public MyViewHolder(View v) {
             super(v);
@@ -73,7 +74,6 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
             jobid = (TextView)v.findViewById(R.id.txt4);
 
 
-            date.setText("Applied on " + currentDate);
 
             title.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -95,9 +95,7 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
             });
 
 
-
         }
-
 
 
     }

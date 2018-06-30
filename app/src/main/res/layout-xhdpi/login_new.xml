@@ -13,49 +13,52 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="88dp"
         android:gravity="center"
         android:text="Login"
         android:textColor="@android:color/white"
         android:textSize="30sp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/img1"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="184dp"
-        android:background="@drawable/user" />
+        android:layout_alignStart="@+id/img2"
+        android:layout_marginTop="207dp"
+        android:background="@mipmap/ico1" />
 
     <EditText
         android:id="@+id/emailedt"
-        android:layout_width="277dp"
+        android:layout_width="291dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="177dp"
-        android:layout_toEndOf="@+id/imageView2"
+        android:layout_alignStart="@+id/passedt"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="200dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="User"
         android:textColor="@android:color/white" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/img2"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/imageView2"
-        android:layout_marginTop="256dp"
-        android:background="@drawable/pass" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="255dp"
+        android:layout_marginStart="15dp"
+        android:background="@mipmap/ico2" />
 
     <EditText
         android:id="@+id/passedt"
-        android:layout_width="276dp"
+        android:layout_width="293dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/emailedt"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="248dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/newusertxt"
+        android:layout_marginBottom="248dp"
+        android:layout_marginStart="-16dp"
         android:ems="10"
         android:inputType="textPassword"
         android:text="Password"
@@ -66,18 +69,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/imageView2"
-        android:layout_marginBottom="225dp"
-        android:text="SaveDetails"
+        android:layout_alignStart="@+id/img1"
+        android:layout_marginBottom="187dp"
+        android:text="Save Details"
         android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/logbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/newusertxt"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Login" />
+        android:layout_marginBottom="119dp"
+        android:text="Login"
+        android:textColor="@color/blue"
+        android:background="@color/white"
+        android:fontFamily="@font/roboto"/>
 
     <TextView
         android:id="@+id/newusertxt"
@@ -85,10 +92,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="147dp"
+        android:layout_marginBottom="93dp"
         android:gravity="center"
         android:onClick="goToRegister"
-        android:text="New User?Register Here"
+        android:text="New User? Register Here"
         android:textColor="@android:color/white" />
+
 
 </RelativeLayout>

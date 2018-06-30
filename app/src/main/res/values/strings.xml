@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GoDrive</string>
+    <string name="app_name">Job List</string>
     <string name="checkbox">checkbox</string>
     <string name="name">name</string>
     <string name="password">password</string>
@@ -39,19 +39,6 @@
     <string name="ans3">
         The apply limit is reset on the 1st day of every month.
     </string>
-
-    <string-array name="experience_years">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-    </string-array>
 
     <string-array name="expected_salary">
         <item>1</item>

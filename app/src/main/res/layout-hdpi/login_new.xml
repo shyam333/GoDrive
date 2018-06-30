@@ -20,14 +20,14 @@
         android:textSize="30sp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/img1"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="24dp"
         android:layout_marginTop="157dp"
-        android:background="@drawable/user" />
+        android:background="@mipmap/ico1" />
 
     <EditText
         android:id="@+id/emailedt"
@@ -36,20 +36,20 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="150dp"
-        android:layout_toEndOf="@+id/imageView9"
+        android:layout_toEndOf="@+id/img2"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="User"
         android:textColor="@android:color/white" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/img2"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/imageView2"
+        android:layout_alignStart="@+id/img1"
         android:layout_marginTop="226dp"
-        android:background="@drawable/pass" />
+        android:background="@mipmap/ico2" />
 
     <EditText
         android:id="@+id/passedt"
@@ -68,19 +68,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/imageView2"
+        android:layout_alignStart="@+id/img1"
         android:layout_marginBottom="190dp"
-        android:text="SaveDetails"
+        android:text="Save Details"
         android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/logbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="117dp"
-        android:text="Login" />
+        android:text="Login"
+        android:textColor="@color/blue"
+        android:background="@color/white"
+        android:fontFamily="@font/roboto"/>
 
     <TextView
         android:id="@+id/newusertxt"
@@ -91,7 +94,7 @@
         android:layout_marginTop="-117dp"
         android:gravity="center"
         android:onClick="goToRegister"
-        android:text="New User?Register Here"
+        android:text="New User? Register Here"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>

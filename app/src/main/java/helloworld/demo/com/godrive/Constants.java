@@ -11,9 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 
 public class Constants extends AppCompatActivity {
 
-
-    //final String s = preferences.getString("candidateid","n/a");
-
+    //final String s = preferences.getString("candidateid","n/a")
 
     public static final String URL_REGISTER = "http://www.godigitell.in/dev/hrportal/apiregister.php" ;
 
@@ -30,9 +28,9 @@ public class Constants extends AppCompatActivity {
 
     public static final String URL_RETRIEVE_PROFILE = "http://www.godigitell.in/dev/hrportal/apiretriveprofile.php";
 
+    public static final String URL_ALL_LOCATIONS = "http://www.godigitell.in/dev/hrportal/apijoblocation.php";
 
-
-
+    public static final String URL_ALL_INDUSTRIES = "http://www.godigitell.in/dev/hrportal/apijobindustry.php";
 
 
 }

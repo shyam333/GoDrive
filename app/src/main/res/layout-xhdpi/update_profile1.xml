@@ -2,6 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -18,9 +19,11 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="27dp"
+        android:fontFamily="@font/roboto"
         android:hint="Name"
+        android:inputType="textPersonName"
         android:textSize="14sp"
-        android:inputType="textPersonName" />
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/edt2"
@@ -32,9 +35,11 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edt1"
         android:hint="Contact Number"
+        android:fontFamily="@font/roboto"
         android:textSize="14sp"
         android:inputType="number"
-        android:maxLength="10"/>
+        android:maxLength="10"
+        tools:ignore="RtlCompat" />
 
 
     <Button
@@ -49,7 +54,9 @@
         android:background="@color/blue"
         android:onClick="nextPage"
         android:text="Next"
-        android:textColor="@color/white" />
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/white"
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/edt4"
@@ -62,8 +69,10 @@
         android:layout_below="@+id/edt3"
         android:ems="10"
         android:hint="Industry"
+        android:fontFamily="@font/roboto"
         android:textSize="14sp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/edt5"
@@ -76,8 +85,10 @@
         android:layout_below="@+id/edt4"
         android:ems="10"
         android:hint="Education"
+        android:fontFamily="@font/roboto"
         android:textSize="14sp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/edt6"
@@ -90,8 +101,10 @@
         android:layout_below="@+id/edt5"
         android:ems="10"
         android:hint="Keyskills"
+        android:fontFamily="@font/roboto"
         android:textSize="14sp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/edt7"
@@ -104,9 +117,11 @@
         android:layout_below="@+id/edt6"
         android:ems="10"
         android:hint="Experience"
-        android:textSize="14sp"
+        android:fontFamily="@font/roboto"
         android:inputType="number"
-        android:maxLength="1"/>
+        android:textSize="14sp"
+
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/edt3"
@@ -119,8 +134,10 @@
         android:layout_below="@+id/edt2"
         android:ems="10"
         android:hint="Location"
+        android:fontFamily="@font/roboto"
         android:textSize="14sp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/txt1"
@@ -129,9 +146,11 @@
         android:layout_above="@+id/edt1"
         android:layout_alignStart="@+id/edt1"
         android:layout_marginBottom="-27dp"
+        android:fontFamily="@font/roboto_medium"
         android:text="Name"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/txt2"
@@ -141,8 +160,10 @@
         android:layout_alignStart="@+id/edt1"
         android:layout_marginBottom="-27dp"
         android:text="Contact no."
+        android:fontFamily="@font/roboto_medium"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/txt3"
@@ -151,8 +172,10 @@
         android:layout_alignStart="@+id/edt1"
         android:layout_below="@+id/edt2"
         android:text="Location"
+        android:fontFamily="@font/roboto_medium"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/txt4"
@@ -162,41 +185,49 @@
         android:layout_alignStart="@+id/edt1"
         android:layout_marginBottom="-27dp"
         android:text="Industry"
+        android:fontFamily="@font/roboto_medium"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
     <TextView
-        android:id="@+id/txt4"
+        android:id="@+id/txt5"
         android:layout_width="377dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/edt5"
         android:layout_alignStart="@+id/edt1"
         android:layout_marginBottom="-27dp"
         android:text="Education"
+        android:fontFamily="@font/roboto_medium"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
     <TextView
-        android:id="@+id/txt5"
+        android:id="@+id/txt6"
         android:layout_width="377dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/edt6"
         android:layout_alignStart="@+id/edt1"
         android:layout_marginBottom="-27dp"
         android:text="Keyskills"
+        android:fontFamily="@font/roboto_medium"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
     <TextView
-        android:id="@+id/txt6"
+        android:id="@+id/txt7"
         android:layout_width="376dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/edt7"
         android:layout_alignStart="@+id/edt1"
         android:layout_marginBottom="-27dp"
         android:text="Experience"
+        android:fontFamily="@font/roboto_medium"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
 
 </RelativeLayout>

@@ -21,7 +21,9 @@ import com.android.volley.request.SimpleMultiPartRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -84,7 +86,6 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
         holder.contactperson.setText(listItems.getContactperson());
         holder.email.setText(listItems.getEmail());
 
-
     }
 
     @Override
@@ -92,11 +93,13 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
         return listItem.size();
     }
 
+    public static void uploadJobToServer() {
+    }
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView title,category,experience,vacancy,location,salary,description,skills,education,contactperson,email;
-        Button applybutton;
+      //  Button applybutton;
 
 
         public MyViewHolder(View v) {
@@ -113,67 +116,64 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
             education = (TextView)v.findViewById(R.id.txt13);
             contactperson = (TextView)v.findViewById(R.id.txt15);
             email = (TextView)v.findViewById(R.id.txt16);
-            applybutton = (Button)v.findViewById(R.id.btn);
+           // applybutton = (Button)v.findViewById(R.id.btn);
 
-
-
-            applybutton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    uploadJobToServer();
-                    MyAdapter3.setAppliedDate();
-                }
-            });
-
-
-
+//            applybutton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                    uploadJobToServer();
+//
+//                }
+//            });
 
         }
 
-        private void uploadJobToServer() {
-
-            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
-            final String s1 = pref.getString("candidateid","n/a");
-            final String s2 = pref.getString("jobid","n/a");
-           // final Model model = new Model();
-
-           // final String s2 = pref.getString("jobid","n/a");
-
-            SimpleMultiPartRequest stringRequest = new SimpleMultiPartRequest(Request.Method.POST,
-                    Constants.URL_APPLY,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-
-                            try {
-                                JSONObject jsonObject = new JSONObject(response);
-                                String s = jsonObject.getString("status");
-
-                                if(!s.equals("400")) {
-                                    Toast.makeText(context, "Applied Successfully", Toast.LENGTH_LONG).show();
-                                    //Toast.makeText(getApplicationContext(), jsonObject.getString("status_message"), Toast.LENGTH_LONG).show();
-                                }
-                                else {
-                                    Toast.makeText(context,"Not Applied",Toast.LENGTH_LONG).show();
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
-            stringRequest.addStringParam("candidateid",s1);
-            stringRequest.addStringParam("job_id",s2);
-
-            RequestHandler.getInstance(context).addToRequestQueue(stringRequest);
-
-
-        }
+//        public static void uploadJobToServer() {
+//
+//            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+//            final String s1 = pref.getString("candidateid","n/a");
+//            final String s2 = pref.getString("jobid","n/a");
+////            Calendar calendar = Calendar.getInstance();
+////            String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
+//
+//            SimpleMultiPartRequest stringRequest = new SimpleMultiPartRequest(Request.Method.POST,
+//                    Constants.URL_APPLY,
+//                    new Response.Listener<String>() {
+//                        @Override
+//                        public void onResponse(String response) {
+//
+//                            try {
+//                                JSONObject jsonObject = new JSONObject(response);
+//                                String s = jsonObject.getString("status");
+//                                String statusMessage = jsonObject.getString("status_message");
+//
+//                                if(s.equals("200")) {
+//                                    Toast.makeText(context, statusMessage, Toast.LENGTH_SHORT).show();
+//                                    //Toast.makeText(getApplicationContext(), jsonObject.getString("status_message"), Toast.LENGTH_LONG).show();
+//                                }
+////                                else {
+////                                    Toast.makeText(context,"Already Applied",Toast.LENGTH_SHORT).show();
+////                                }
+//
+//                            } catch (JSONException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                    }, new Response.ErrorListener() {
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+//                }
+//            });
+//            stringRequest.addStringParam("candidateid",s1);
+//            stringRequest.addStringParam("job_id",s2);
+//            //stringRequest.addStringParam("currentdate",currentDate);
+//
+//            RequestHandler.getInstance(context).addToRequestQueue(stringRequest);
+//
+//
+//        }
     }
 
 

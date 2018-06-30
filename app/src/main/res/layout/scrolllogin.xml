@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/loginpage">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="88dp"
+                android:gravity="center"
+                android:text="Login"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                tools:ignore="RtlCompat"
+                android:fontFamily="@font/roboto_medium" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="77dp">
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="14dp"
+                android:background="@mipmap/ico1"
+                tools:ignore="RtlCompat"/>
+
+            <EditText
+                android:id="@+id/emailedt"
+                android:layout_width="285dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="24dp"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:inputType="textPersonName"
+                android:text="User"
+                android:textColor="@android:color/white"
+                tools:ignore="RtlCompat" />
+
+        </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp">
+
+                <ImageView
+                    android:id="@+id/img2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="14dp"
+                    android:background="@mipmap/ico2"
+                    tools:ignore="RtlCompat"/>
+
+                <EditText
+                    android:id="@+id/passedt"
+                    android:layout_width="289dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="20dp"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="textPassword"
+                    android:text="Password"
+                    android:textColor="@android:color/white"
+                    tools:ignore="RtlCompat" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="34dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Save Details"
+                    android:textColor="@android:color/white"
+                    tools:ignore="RtlCompat" />
+
+
+            </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp">
+
+            <Button
+                android:id="@+id/logbtn"
+                android:layout_width="110dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="114dp"
+                android:text="Login"
+                android:textColor="@color/blue"
+                android:background="@color/white"
+                android:fontFamily="@font/roboto"
+                tools:ignore="RtlCompat"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:id="@+id/newusertxt"
+                android:layout_width="226dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="55dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:onClick="goToRegister"
+                android:text="New User? Register Here"
+                android:textColor="@android:color/white"
+                tools:ignore="RtlCompat" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

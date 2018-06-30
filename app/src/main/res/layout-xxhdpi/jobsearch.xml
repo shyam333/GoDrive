@@ -14,14 +14,16 @@
         android:id="@+id/edt1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="87dp"
+        android:fontFamily="@font/roboto_medium"
         android:text="Category"
         android:textSize="18dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
     <AutoCompleteTextView
         android:id="@+id/autoCompleteTextView1"
@@ -32,17 +34,19 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edt1"
         android:hint="(Keywords(Software Engineer,Sales....)"
-        android:maxLines="1" />
+        android:maxLines="1"
+        tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/edt2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/autoCompleteTextView1"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:layout_below="@+id/autoCompleteTextView1"
-        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/roboto_medium"
         android:text="Location"
         android:textSize="18dp"
         android:textStyle="bold" />
@@ -61,14 +65,16 @@
         android:id="@+id/newusertxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/autoCompleteTextView2"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/autoCompleteTextView2"
+        android:fontFamily="@font/roboto_medium"
         android:text="Experience"
         android:textSize="18dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
     <Spinner
         android:id="@+id/spinner1"
@@ -79,7 +85,7 @@
         android:layout_marginTop="8dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/newusertxt"
-        tools:ignore="UnknownId" />
+        tools:ignore="RtlCompat,UnknownId" />
 
     <TextView
         android:id="@+id/textView5"
@@ -98,7 +104,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/spinner1" />
+        android:layout_alignTop="@+id/spinner1"
+        />
 
     <Button
         android:id="@+id/btn"
@@ -106,9 +113,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="244dp"
+        android:layout_marginBottom="172dp"
         android:background="@drawable/buttonshapes"
         android:text="Search"
+        android:fontFamily="@font/roboto"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>

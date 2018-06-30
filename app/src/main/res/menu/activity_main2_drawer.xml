@@ -8,22 +8,22 @@
 
         <item
             android:id="@+id/item2"
-            android:icon="@drawable/search"
+            android:icon="@mipmap/ico8"
             android:title="Search Jobs" />
         <item
             android:id="@+id/item3"
-            android:icon="@drawable/update"
+            android:icon="@mipmap/ico6"
             android:title="Update Profile" />
 
         <item
             android:id="@+id/item4"
-            android:icon="@drawable/applied"
+            android:icon="@mipmap/ico7"
             android:title="Applied Jobs" />
 
 
         <item
             android:id="@+id/item10"
-            android:icon="@drawable/logout"
+            android:icon="@mipmap/ico5"
             android:title="Sign Out" />
 
 

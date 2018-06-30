@@ -45,7 +45,7 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_new);
 
-        nam = (EditText)findViewById(R.id.namedt);
+        nam = (EditText)findViewById(R.id.nameedt);
         mail = (EditText)findViewById(R.id.mailedt);
         pass = (EditText)findViewById(R.id.passedt);
         button = (Button)findViewById(R.id.button);
@@ -57,33 +57,13 @@ public class Register extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validateEmail(mail.getText().toString());
+
                 validationMethod();
+
             }
         });
 
     }
-
-    private void clearEditText(){
-
-        nam.setText("");
-        mail.setText("");
-        pass.setText("");
-
-    }
-
-    private void validateEmail(String s) {
-
-        if(s.contains("@"))
-        {
-           registerUser();
-        }
-        else {
-            Toast.makeText(getApplicationContext(),"Invalid Email",Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
 
     private void validationMethod() {
 
@@ -94,13 +74,20 @@ public class Register extends AppCompatActivity {
         {
             Toast.makeText(getApplicationContext(),"Enter Name",Toast.LENGTH_SHORT).show();
         }
-        else if(emailcheck.isEmpty())
+        if(emailcheck.isEmpty())
         {
             Toast.makeText(getApplicationContext(),"Enter Email",Toast.LENGTH_SHORT).show();
         }
-        else if(passwordcheck.isEmpty())
+        if(passwordcheck.isEmpty())
         {
             Toast.makeText(getApplicationContext(),"Enter Password",Toast.LENGTH_SHORT).show();
+        }
+        else if(emailcheck.contains("@"))
+        {
+            registerUser();
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"Invalid Email",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -121,20 +108,19 @@ public class Register extends AppCompatActivity {
                         progressDialog.dismiss();
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            String s1 = jsonObject.getString("status");
-                            Log.d("STATUS:",s1);
-                           // String s2 = jsonObject.getString("status_message");
-                           // Log.d("STATUS_MESSAGE:",s2);
-                           // Log.d("RESPONSE:",response.toString());
-                          //  if(s2.equals("User insert")) {
-                            if(!s1.equals("400")){
+                            String status = jsonObject.getString("status");
+                            Log.d("STATUS",status);
+                            String statusMessage = jsonObject.getString("status_message");
+                            Log.d("STATUS_MESSAGE",statusMessage);
 
-                                Toast.makeText(getApplicationContext(), "Registration Successful", Toast.LENGTH_SHORT).show();
-                                clearEditText();
+                            if(status.equals("200")){
+
+                                Toast.makeText(getApplicationContext(), statusMessage, Toast.LENGTH_SHORT).show();
+                                if(statusMessage.equals("Registration Successful"))
                                 startActivity(new Intent(Register.this,Login.class));
-                                //Toast.makeText(getApplicationContext(), jsonObject.getString("status_message"), Toast.LENGTH_LONG).show();
                             }
-//                            else if(s2.equals("Username or Email Exists"))
+                          //  else if(statusMessage.equals("Username or Email Exists"))
+//                            if(status.equals("400"))
 //                            {
 //                                Toast.makeText(getApplicationContext(),"Already Registered",Toast.LENGTH_SHORT).show();
 //                            }
@@ -149,7 +135,6 @@ public class Register extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.hide();
-                //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 

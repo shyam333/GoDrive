@@ -30,8 +30,10 @@
         android:layout_marginStart="54dp"
         android:background="@color/blue"
         android:text="Login"
+        android:fontFamily="@font/roboto"
         android:textColor="@color/white"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        tools:ignore="RtlCompat" />
 
     <Button
         android:id="@+id/regbtn"
@@ -43,8 +45,10 @@
         android:layout_marginEnd="39dp"
         android:background="@color/blue"
         android:text="Register"
+        android:fontFamily="@font/roboto"
         android:textColor="@color/white"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        tools:ignore="RtlCompat" />
 
     <ImageView
         android:id="@+id/imageView7"

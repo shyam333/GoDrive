@@ -11,15 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:padding="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         app:cardBackgroundColor="@color/blue">
 
         <TextView
             android:id="@+id/job"
-            android:maxLines="1"
-            android:layout_marginTop="8dp"
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:maxLines="1"
             android:textColor="@android:color/white"
             android:textSize="24sp" />
 
@@ -29,6 +32,7 @@
             android:layout_height="20dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="40dp"
+            android:fontFamily="@font/roboto_medium"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
@@ -40,7 +44,7 @@
             android:layout_gravity="end"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/share" />
+            android:background="@mipmap/ico16" />
 
         <TextView
             android:id="@+id/textView4"
@@ -68,7 +72,7 @@
             android:layout_alignRight="@+id/textView12"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            app:srcCompat="@drawable/ico1"
+            app:srcCompat="@mipmap/ico15"
             tools:ignore="UnknownId" />
 
         <TextView
@@ -80,6 +84,7 @@
             android:layout_marginStart="22dp"
             android:layout_toEndOf="@+id/imageView3"
             android:layout_toRightOf="@+id/imageView3"
+            android:fontFamily="@font/roboto"
             android:text="Experience" />
 
         <ImageView
@@ -90,7 +95,7 @@
             android:layout_alignStart="@+id/imageView3"
             android:layout_below="@+id/edt1"
             android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/ico3" />
+            app:srcCompat="@mipmap/ico14" />
 
         <TextView
             android:id="@+id/edt2"
@@ -99,6 +104,7 @@
             android:layout_alignBottom="@+id/imageView4"
             android:layout_alignLeft="@+id/edt1"
             android:layout_alignStart="@+id/edt1"
+            android:fontFamily="@font/roboto"
             android:text="Vacancies" />
 
         <ImageView
@@ -109,7 +115,7 @@
             android:layout_alignStart="@+id/imageView4"
             android:layout_below="@+id/edt2"
             android:layout_marginTop="12dp"
-            app:srcCompat="@drawable/ico2" />
+            app:srcCompat="@mipmap/ico13" />
 
         <TextView
             android:id="@+id/newusertxt"
@@ -118,7 +124,8 @@
             android:layout_alignBottom="@+id/imageView5"
             android:layout_alignLeft="@+id/edt2"
             android:layout_alignStart="@+id/edt2"
-            android:text="location"/>
+            android:fontFamily="@font/roboto"
+            android:text="location" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -128,7 +135,7 @@
             android:layout_alignStart="@+id/imageView5"
             android:layout_below="@+id/imageView5"
             android:layout_marginTop="17dp"
-            app:srcCompat="@drawable/ico4" />
+            app:srcCompat="@mipmap/ico12" />
 
         <TextView
             android:id="@+id/txt4"
@@ -137,6 +144,7 @@
             android:layout_alignBottom="@+id/imageView6"
             android:layout_alignLeft="@+id/newusertxt"
             android:layout_alignStart="@+id/newusertxt"
+            android:fontFamily="@font/roboto"
             android:text="Salary Per Annum" />
 
         <TextView
@@ -149,6 +157,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
             android:text="Description"
             android:textStyle="bold" />
 
@@ -173,6 +182,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
             android:text="KeySkills"
             android:textStyle="bold" />
 
@@ -197,6 +207,7 @@
             android:layout_below="@+id/txt8"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
             android:text="Education"
             android:textStyle="bold" />
 
@@ -218,6 +229,7 @@
             android:layout_below="@+id/txt13"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
             android:text="Contact Details"
             android:textStyle="bold" />
 
@@ -244,6 +256,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+
         android:id="@+id/rl2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -251,15 +264,6 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/rl1">
 
-        <Button
-            android:id="@+id/btn"
-            android:textColor="@color/white"
-            android:background="@drawable/buttonshapes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="Apply" />
     </RelativeLayout>
 
 </RelativeLayout>

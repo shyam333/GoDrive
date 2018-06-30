@@ -2,12 +2,15 @@ package helloworld.demo.com.godrive;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -49,7 +52,17 @@ public class SearchedJobs extends AppCompatActivity {
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("Job List");
+        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(),R.drawable.backarrow);
+        toolbar.setNavigationIcon(drawable);
         setSupportActionBar(toolbar);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 
     private void loadRecyclerViewData() {

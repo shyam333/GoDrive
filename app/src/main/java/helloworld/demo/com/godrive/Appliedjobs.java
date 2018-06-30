@@ -3,13 +3,16 @@ package helloworld.demo.com.godrive;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -38,7 +41,7 @@ import java.util.Map;
 public class Appliedjobs extends AppCompatActivity {
 
     List<ListItem> listItem = new ArrayList<>();
-    RecyclerView.Adapter mAdapter;
+    MyAdapter3 mAdapter;
     RecyclerView recyclerView;
     Toolbar toolbar;
 
@@ -48,6 +51,12 @@ public class Appliedjobs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_view2);
 
+        if(getSupportActionBar() != null)
+        {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
         loadRecyclerViewData();
 
         recyclerView = (RecyclerView) findViewById(R.id.rc2);
@@ -56,9 +65,20 @@ public class Appliedjobs extends AppCompatActivity {
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle("Applied Jobs");
+        Drawable drawable = ContextCompat.getDrawable(Appliedjobs.this,R.drawable.backarrow);
+        toolbar.setNavigationIcon(drawable);
         setSupportActionBar(toolbar);
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
+    }
+
 
     private void loadRecyclerViewData() {
 
@@ -78,12 +98,14 @@ public class Appliedjobs extends AppCompatActivity {
                             progressDialog.dismiss();
 
                             JSONObject jsonObject = new JSONObject(response);
+                            Log.d("response",response);
                             JSONArray array = jsonObject.getJSONArray("data");
 
                             //JSONArray array = new JSONArray(s);
                             for (int i = 0; i < array.length(); i++) {
                                 JSONObject o = array.getJSONObject(i);
                                 ListItem item = new ListItem(
+
                                         o.getString("job_title"),
                                         o.getString("category_name"),
                                         o.getString("experience_from"),
@@ -91,13 +113,18 @@ public class Appliedjobs extends AppCompatActivity {
                                         o.getString("location_name"),
                                         o.getString("keyskills"),
                                         o.getString("job_description"),
-                                        o.getString("id")
+                                        o.getString("id"),
+                                        o.getString("applied_date")
 
                                 );
                                 listItem.add(item);
+
+
                             }
                             mAdapter = new MyAdapter3(listItem, getApplicationContext());
                             recyclerView.setAdapter(mAdapter);
+                            mAdapter.notifyDataSetChanged();
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();

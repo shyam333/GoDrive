@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_new);
+        setContentView(R.layout.scrolllogin);
 
 
         // newuser = (TextView)findViewById(R.id.newusertxt);

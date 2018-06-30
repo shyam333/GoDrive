@@ -1,10 +1,13 @@
 package helloworld.demo.com.godrive;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,12 +15,16 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by shyamramesh on 22/05/18.
  */
 
-public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner spin1,spin2;
     TextView category,location,experience,renumeration;
@@ -39,6 +46,11 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
         spin2 = (Spinner)findViewById(R.id.spinner2);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
 
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
         autoComplete1 = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView1);
         autoComplete2 = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
         jobs = getResources().getStringArray(R.array.jobnames);
@@ -47,15 +59,28 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
 
 
         toolbar.setTitle("Search Jobs");
+        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(),R.drawable.backarrow);
+        toolbar.setNavigationIcon(drawable);
         setSupportActionBar(toolbar);
 
-
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getApplicationContext(),R.array.experience_years,android.R.layout.simple_spinner_item);
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin1.setAdapter(adapter1);
         spin1.setOnItemSelectedListener(this);
-        spin2.setAdapter(adapter1);
         spin2.setOnItemSelectedListener(this);
+        List<String> experience = new ArrayList<>();
+        experience.add("0");
+        experience.add("1");
+        experience.add("2");
+        experience.add("3");
+        experience.add("4");
+        experience.add("5");
+        experience.add("6");
+        experience.add("7");
+        experience.add("8");
+        experience.add("9");
+
+        ArrayAdapter<String>dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,experience);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin1.setAdapter(dataAdapter);
+        spin2.setAdapter(dataAdapter);
 
         ArrayAdapter<String>arrayAdapter1 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,jobs);
         autoComplete1.setAdapter(arrayAdapter1);
@@ -84,12 +109,25 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == android.R.id.home)
+        finish();
+        return super.onOptionsItemSelected(item);
     }
+
+
 
     @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+        String item = parent.getItemAtPosition(position).toString();
+       // Long i = parent.getSelectedItemId();
+       // Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
     }
+
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
+    }
+
 }

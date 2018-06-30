@@ -25,42 +25,30 @@ public class ListItem extends AppCompatActivity {
     private String name;
     private String contact;
     private String experience;
+    private String applieddate;
 
 
 
 //private String imageUrl;
 
 
-    public ListItem() {
-    }
+    public ListItem(String job, String category, String expfrom, String expto, String location, String skills, String description, String jobid,String applieddate) {
 
-    public ListItem(String jobTitle, String job_title, String job, String category, String expfrom, String expto, String location) {
         this.job = job;
         this.category = category;
         this.expfrom = expfrom;
         this.expto = expto;
         this.location = location;
         this.skills = skills;
-        this.description = description;
-    }
-
-    public ListItem(String job, String category, String expfrom, String expto, String positions, String location, String salaryfrom, String salaryto, String description, String skills, String education, String contactperson, String email,String jobid) {
-        this.job = job;
-        this.category = category;
-        this.expfrom = expfrom;
-        this.expto = expto;
-        this.positions = positions;
-        this.location = location;
-        this.salaryfrom = salaryfrom;
-        this.salaryto = salaryto;
-        this.description = description;
         this.skills = skills;
-        this.education = education;
-        this.contactperson = contactperson;
-        this.email = email;
+        this.description = description;
         this.jobid = jobid;
-
+        this.applieddate = applieddate;
     }
+
+
+
+
 
     public ListItem(String job, String category, String expfrom, String expto, String location, String skills, String description, String jobid) {
 
@@ -76,23 +64,29 @@ public class ListItem extends AppCompatActivity {
 
     }
 
-    public ListItem(String job, String category, String expfrom, String expto, String location, String skills) {
 
+
+    public ListItem(String job, String category, String expfrom, String expto, String positions, String location, String salaryfrom, String salaryto, String description, String skills, String education, String contactperson, String email, String jobid) {
         this.job = job;
         this.category = category;
         this.expfrom = expfrom;
         this.expto = expto;
+        this.positions = positions;
         this.location = location;
+        this.salaryfrom = salaryfrom;
+        this.salaryto = salaryto;
+        this.description = description;
         this.skills = skills;
+        this.education = education;
+        this.contactperson = contactperson;
+        this.email = email;
+        this.jobid = jobid;
     }
 
-    public ListItem(String name, String contact, String education, String skills, String experience) {
 
-        this.name = name;
-        this.contact = contact;
-        this.education = education;
-        this.skills = skills;
-        this.experience = experience;
+
+    public String getApplieddate() {
+        return applieddate;
     }
 
     public String getName() {
