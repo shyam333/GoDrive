@@ -6,20 +6,9 @@
     tools:context=".JobDetail">
 
     <include
+        android:id="@id/toolbar"
         layout="@layout/toolbar"
-        android:id="@id/toolbar"/>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical">
+        />
 
             <Button
                 android:id="@+id/btn"
@@ -34,16 +23,11 @@
                 android:text="APPLY"
                 android:textColor="@color/white" />
 
-        </LinearLayout>
-
-
-    </ScrollView>
-
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rc2"
         android:layout_width="match_parent"
-        android:layout_height="523dp"
+        android:layout_height="434dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true" />
 

@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Job List</string>
+
+
+    <string name="app_name">GoDrive</string>
     <string name="checkbox">checkbox</string>
     <string name="name">name</string>
     <string name="password">password</string>

@@ -16,6 +16,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/xhdpi'] } }
 }
 
 dependencies {
@@ -39,6 +40,8 @@ dependencies {
     compile "com.android.support:recyclerview-v7:27.0.0"
     //UploadService
     compile 'net.gotev:uploadservice:2.1'
+
+
 
 
 }

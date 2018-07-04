@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/loginpage">
+    android:background="@mipmap/loginbg">
 
 
     <LinearLayout
@@ -110,6 +111,14 @@
             android:layout_width="match_parent"
             android:layout_height="75dp">
 
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="15dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="97dp"
+                android:background="@drawable/arrow"/>
+
             <Button
                 android:id="@+id/logbtn"
                 android:layout_width="110dp"
@@ -117,17 +126,19 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="114dp"
-                android:text="Login"
-                android:textColor="@color/blue"
                 android:background="@color/white"
-                android:fontFamily="@font/roboto"
-                tools:ignore="RtlCompat"/>
+                android:fontFamily="@font/roboto_medium"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textColor="@color/blue"
+                tools:ignore="RtlCompat" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="60dp"
+            >
 
             <TextView
                 android:id="@+id/newusertxt"
@@ -135,7 +146,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginEnd="55dp"
+                android:layout_marginEnd="54dp"
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:onClick="goToRegister"
@@ -144,6 +155,7 @@
                 tools:ignore="RtlCompat" />
 
         </RelativeLayout>
+
 
 
     </LinearLayout>

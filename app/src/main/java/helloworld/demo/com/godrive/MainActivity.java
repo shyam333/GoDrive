@@ -16,12 +16,11 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     Button button1,button2;
 
-
     @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_new);
 
         imageView = (ImageView)findViewById(R.id.imageView);
         button1 = (Button)findViewById(R.id.loginbtn);

@@ -36,7 +36,7 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.jobsearch);
+        setContentView(R.layout.jobsearch_new);
 
         category = (TextView)findViewById(R.id.edt1);
         location = (TextView)findViewById(R.id.edt2);

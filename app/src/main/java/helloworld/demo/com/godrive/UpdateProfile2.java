@@ -38,7 +38,7 @@ public class UpdateProfile2 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.update_profile2);
+        setContentView(R.layout.update_profile2_new);
 
         next = (Button) findViewById(R.id.btn);
         designation = (EditText) findViewById(R.id.edt1);
@@ -61,10 +61,7 @@ public class UpdateProfile2 extends AppCompatActivity {
         toolbar.setNavigationIcon(drawable);
         setSupportActionBar(toolbar);
 
-
-
-       reteriveProfile();
-
+        reteriveProfile();
 
     }
 
@@ -119,7 +116,10 @@ public class UpdateProfile2 extends AppCompatActivity {
                             String s = jsonObject.getString("status");
                             Log.d("RESPONSE:", response.toString());
                             if (!s.equals("400")) {
+
                                 Toast.makeText(getApplicationContext(), "Upload Successful", Toast.LENGTH_LONG).show();
+
+                                startActivity(new Intent(UpdateProfile2.this,Main2Activity.class));
                                 //Toast.makeText(getApplicationContext(), jsonObject.getString("status_message"), Toast.LENGTH_LONG).show();
                             } else {
                                 Toast.makeText(getApplicationContext(), "Upload Failed", Toast.LENGTH_LONG).show();
