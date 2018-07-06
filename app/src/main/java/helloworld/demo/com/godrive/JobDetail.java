@@ -138,8 +138,6 @@ public class JobDetail extends AppCompatActivity {
                                 recyclerView.setAdapter(mAdapter);
                             }
 
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -163,8 +161,6 @@ public class JobDetail extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(JobDetail.this);
         final String s1 = pref.getString("candidateid","n/a");
         final String s2 = pref.getString("jobid","n/a");
-//            Calendar calendar = Calendar.getInstance();
-//            String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
 
         SimpleMultiPartRequest stringRequest = new SimpleMultiPartRequest(Request.Method.POST,
                 Constants.URL_APPLY,

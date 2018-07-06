@@ -34,11 +34,13 @@
                                   </option>
                                   <option name="values">
                                     <map>
+                                      <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundLayerName" value="ic_launcher_background" />
                                       <entry key="foregroundImage" value="$PROJECT_DIR$/../crop/godrive.png" />
                                       <entry key="foregroundLayerName" value="ic_launcher_foreground" />
                                       <entry key="legacyIconShape" value="CIRCLE" />
                                       <entry key="outputName" value="my_app_icon" />
+                                      <entry key="webIconShape" value="CIRCLE" />
                                     </map>
                                   </option>
                                 </PersistentState>

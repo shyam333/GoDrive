@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/toolbar"
+        android:id="@id/toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Designation"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                />>
+
+            <EditText
+                android:id="@+id/edt1"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:hint="Current Designation"
+                android:inputType="textCapWords"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Notice Period"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:id="@+id/edt2"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:hint="Notice Period"
+                android:inputType="number"
+                android:maxLength="10"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/txt3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Negotiable"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+
+            <EditText
+                android:id="@+id/edt3"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:hint="Negotiable(Option)"
+                android:inputType="textCapWords"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/txt4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="CTC"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+
+            <EditText
+                android:id="@+id/edt4"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:hint="CTC(Lacs Per Annum)"
+                android:inputType="number"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/txt5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="ECTC"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+
+            <EditText
+                android:id="@+id/edt5"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:hint="ECTC(Lacs Per Annum)"
+                android:inputType="number"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/txt6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Remarks"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+
+            <EditText
+                android:id="@+id/edt6"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:hint="Remarks"
+                android:inputType="textCapWords"
+                android:textSize="12sp"/>
+
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="54dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/blue"
+                android:onClick="uploadProfile"
+                android:text="Submit"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/white"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

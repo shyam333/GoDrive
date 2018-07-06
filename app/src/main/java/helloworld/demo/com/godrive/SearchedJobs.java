@@ -38,7 +38,6 @@ public class SearchedJobs extends AppCompatActivity {
     RecyclerView recyclerView;
     Toolbar toolbar;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,19 +100,33 @@ public class SearchedJobs extends AppCompatActivity {
                                         o.getString("job_description"),
                                         o.getString("id")
                                 );
-                                if(o.getString("category_name").equals(category))
-                                {
-                                    listItem.add(item);
-                                }
 
+                                String cat = o.getString("category_name");
+                                String loc = o.getString("location_name");
+                                String expf = o.getString("experience_from");
+                                String expt = o.getString("experience_to");
+
+                                int value1 = Integer.parseInt(expf);
+                                int value2 = Integer.parseInt(expt);
+                                int value3 = Integer.parseInt(expfrom);
+                                int value4 = Integer.parseInt(expto);
+                                //if((cat.equals(category) && loc.equals(location)) && (expf.equals(expfrom) && expt.equals(expto)))
+                              //  if((cat.equals(category) && loc.equals(location)))
+                               //if((value1 >= value3) && (value1 <= value3))
+                                //{
+                                    listItem.add(item);
+                                //}
                             }
                             mAdapter = new MyAdapter1(listItem,getApplicationContext());
+                            if(listItem.isEmpty())
+                            {
+                                Toast.makeText(SearchedJobs.this,"No Jobs Found",Toast.LENGTH_SHORT).show();
+                            }
                             recyclerView.setAdapter(mAdapter);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
 
                     }
                 },
@@ -127,6 +140,7 @@ public class SearchedJobs extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
-
     }
+
+
 }

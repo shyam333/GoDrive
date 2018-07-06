@@ -83,8 +83,10 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
         holder.description.setText(listItems.getDescription());
         holder.skills.setText(listItems.getSkills());
         holder.education.setText(listItems.getEducation());
-        holder.contactperson.setText(listItems.getContactperson());
-        holder.email.setText(listItems.getEmail());
+        holder.contactperson.setText("Preetha Ranganathan");
+        holder.email.setText("jobs@godrive.co.in");
+       // holder.contactperson.setText(listItems.getContactperson());
+       // holder.email.setText(listItems.getEmail());
 
     }
 

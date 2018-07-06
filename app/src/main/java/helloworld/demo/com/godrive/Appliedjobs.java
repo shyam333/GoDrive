@@ -44,6 +44,7 @@ public class Appliedjobs extends AppCompatActivity {
     MyAdapter3 mAdapter;
     RecyclerView recyclerView;
     Toolbar toolbar;
+   // String strJobtitle;
 
 
     @Override
@@ -98,12 +99,25 @@ public class Appliedjobs extends AppCompatActivity {
                             progressDialog.dismiss();
 
                             JSONObject jsonObject = new JSONObject(response);
-                            Log.d("response",response);
-                            JSONArray array = jsonObject.getJSONArray("data");
+                            Log.d("applied response",response);
+                            String status = jsonObject.getString("status");
+                            Log.d("STATUS",status);
+                            String statusMessage = jsonObject.getString("status_message");
+                            Log.d("STATUS MESSAGE",statusMessage);
+                            if(statusMessage.equals("No Jobs Applied"))
+                            {
 
+                                Toast.makeText(Appliedjobs.this, "No Jobs Applied", Toast.LENGTH_LONG).show();
+
+                               // startActivity(new Intent(Appliedjobs.this, Main2Activity.class));
+                            }
+
+                            JSONArray array = jsonObject.getJSONArray("data");
                             //JSONArray array = new JSONArray(s);
                             for (int i = 0; i < array.length(); i++) {
                                 JSONObject o = array.getJSONObject(i);
+                               // strJobtitle = o.getString("job_title");
+
                                 ListItem item = new ListItem(
 
                                         o.getString("job_title"),
@@ -117,14 +131,12 @@ public class Appliedjobs extends AppCompatActivity {
                                         o.getString("applied_date")
 
                                 );
-                                listItem.add(item);
-
+                                        listItem.add(item);
 
                             }
                             mAdapter = new MyAdapter3(listItem, getApplicationContext());
                             recyclerView.setAdapter(mAdapter);
                             mAdapter.notifyDataSetChanged();
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -1,5 +1,6 @@
 package helloworld.demo.com.godrive;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
@@ -12,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -55,7 +57,7 @@ public class UpdateProfile1 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.update_profile1_new);
+        setContentView(R.layout.profilepage1_scroll);
 
         name = (EditText) findViewById(R.id.edt1);
         contact = (EditText) findViewById(R.id.edt2);
@@ -68,6 +70,8 @@ public class UpdateProfile1 extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         spinner1 = (Spinner) findViewById(R.id.spin1);
         spinner2 = (Spinner) findViewById(R.id.spin2);
+
+
 
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(UpdateProfile1.this);
@@ -89,9 +93,12 @@ public class UpdateProfile1 extends AppCompatActivity {
         toolbar.setNavigationIcon(drawable);
         setSupportActionBar(toolbar);
 
+
+        //closeKeyboard();
         reteriveAlllocations();
         reteriveAllIndustries();
         reteriveProfile();
+
 
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -105,8 +112,6 @@ public class UpdateProfile1 extends AppCompatActivity {
                 {
                     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(UpdateProfile1.this);
                     value1 = sharedPreferences.getString("locationkey","Location");
-
-
                 }
 
             }
@@ -144,6 +149,7 @@ public class UpdateProfile1 extends AppCompatActivity {
 
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -151,6 +157,8 @@ public class UpdateProfile1 extends AppCompatActivity {
             finish();
         return super.onOptionsItemSelected(item);
     }
+
+
 
     private void reteriveAlllocations() {
 
@@ -250,6 +258,49 @@ public class UpdateProfile1 extends AppCompatActivity {
     }
     public void nextPage(View view) {
 
+        profilePage1Validation();
+        //reteriveProfile();
+    }
+
+    private void profilePage1Validation() {
+
+        String s1,s2,s3,s4,s5;
+
+        s1 = name.getText().toString();
+        s2 = contact.getText().toString();
+        s3 = education.getText().toString();
+        s4 = skills.getText().toString();
+        s5 = experience.getText().toString();
+
+        if(s1.isEmpty())
+        {
+            Toast.makeText(this, "Enter Name", Toast.LENGTH_SHORT).show();
+        }
+        else if(s2.isEmpty())
+        {
+            Toast.makeText(this, "Enter Contact Number", Toast.LENGTH_SHORT).show();
+        }
+        else if(s3.isEmpty())
+        {
+            Toast.makeText(this, "Enter Educational Qualification", Toast.LENGTH_SHORT).show();
+        }
+        else if(s4.isEmpty())
+        {
+            Toast.makeText(this, "Enter KeySkills", Toast.LENGTH_SHORT).show();
+        }
+        else if(s5.isEmpty())
+        {
+            Toast.makeText(this, "Enter Experience", Toast.LENGTH_SHORT).show();
+        }
+
+       else if(!s1.isEmpty() && !s2.isEmpty() && !s3.isEmpty() && !s4.isEmpty() && !s5.isEmpty()){
+
+            nextPage();
+        }
+    }
+
+    private void nextPage()
+    {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(UpdateProfile1.this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("prf1name", name.getText().toString());
@@ -261,12 +312,9 @@ public class UpdateProfile1 extends AppCompatActivity {
         editor.putString("prf1experience", experience.getText().toString());
         editor.apply();
 
-        //reteriveProfile();
-
         startActivity(new Intent(UpdateProfile1.this, UpdateProfile2.class));
 
     }
-
     private void reteriveProfile() {
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(UpdateProfile1.this);
@@ -406,6 +454,9 @@ public class UpdateProfile1 extends AppCompatActivity {
         editor.apply();
 
     }
+
+
+
 
 }
 

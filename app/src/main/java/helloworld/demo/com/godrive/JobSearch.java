@@ -33,6 +33,7 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
     Button searchbutton;
     Toolbar toolbar;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +77,17 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
         experience.add("7");
         experience.add("8");
         experience.add("9");
+        experience.add("10");
+        experience.add("11");
+        experience.add("12");
+        experience.add("13");
+        experience.add("14");
+        experience.add("15");
+        experience.add("16");
+        experience.add("17");
+        experience.add("18");
+        experience.add("19");
+        experience.add("20");
 
         ArrayAdapter<String>dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,experience);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -92,19 +104,49 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
             @Override
             public void onClick(View v) {
 
-                final String value1 = autoComplete1.getText().toString();
-                final String value2 = autoComplete2.getText().toString();
-                final String value3 = spin1.getSelectedItem().toString();
-                final String value4 = spin2.getSelectedItem().toString();
-
-                Intent intent = new Intent(JobSearch.this,SearchedJobs.class);
-                intent.putExtra("key1",value1);
-                intent.putExtra("key2",value2);
-                intent.putExtra("key3",value3);
-                JobSearch.this.startActivity(intent);
+                goAndSearch();
+               // validationMethod();
 
             }
+
+//            private void validationMethod() {
+//
+//                final String value1 = autoComplete1.getText().toString();
+//                final String value2 = autoComplete2.getText().toString();
+//                final String value3 = spin1.getSelectedItem().toString();
+//                final String value4 = spin2.getSelectedItem().toString();
+//
+//                if(value1.isEmpty())
+//                {
+//                    Toast.makeText(JobSearch.this, "Enter Category", Toast.LENGTH_SHORT).show();
+//                }
+//                else if(value2.isEmpty())
+//                {
+//                    Toast.makeText(JobSearch.this, "Enter Location", Toast.LENGTH_SHORT).show();
+//                }
+//
+//                else if(!value1.isEmpty() && !value2.isEmpty())
+//                {
+//                    goAndSearch();
+//                }
+//            }
         });
+
+    }
+
+    private void goAndSearch() {
+
+        final String value1 = autoComplete1.getText().toString();
+        final String value2 = autoComplete2.getText().toString();
+        final String value3 = spin1.getSelectedItem().toString();
+        final String value4 = spin2.getSelectedItem().toString();
+
+        Intent intent = new Intent(JobSearch.this,SearchedJobs.class);
+        intent.putExtra("key1",value1);
+        intent.putExtra("key2",value2);
+        intent.putExtra("key3",value3);
+        intent.putExtra("key4",value4);
+        JobSearch.this.startActivity(intent);
 
     }
 

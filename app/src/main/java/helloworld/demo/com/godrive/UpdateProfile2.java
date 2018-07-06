@@ -1,6 +1,5 @@
 package helloworld.demo.com.godrive;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
@@ -38,7 +37,7 @@ public class UpdateProfile2 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.update_profile2_new);
+        setContentView(R.layout.profilepage2_scroll);
 
         next = (Button) findViewById(R.id.btn);
         designation = (EditText) findViewById(R.id.edt1);
@@ -74,6 +73,54 @@ public class UpdateProfile2 extends AppCompatActivity {
     }
 
     public void uploadProfile(View view) {
+
+      validationmethod();
+
+    }
+
+
+    private void validationmethod()
+    {
+
+        final String s1 = notice.getText().toString();
+
+        final String s2 = negotiable.getText().toString();
+
+        final String s3 = ctc.getText().toString();
+
+        final String s4 = ectc.getText().toString();
+
+        final String s5 = remarks.getText().toString();
+
+        if(s1.isEmpty())
+        {
+            Toast.makeText(this, "Enter Notice", Toast.LENGTH_SHORT).show();
+        }
+        else if(s2.isEmpty())
+        {
+            Toast.makeText(this, "Enter Negotiable", Toast.LENGTH_SHORT).show();
+        }
+        else if(s3.isEmpty())
+        {
+            Toast.makeText(this, "Enter Ctc", Toast.LENGTH_SHORT).show();
+        }
+        else if(s4.isEmpty())
+        {
+            Toast.makeText(this, "Enter Ectc", Toast.LENGTH_SHORT).show();
+        }
+        else if(s5.isEmpty())
+        {
+            Toast.makeText(this, "Enter Remarks", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(!s1.isEmpty() && !s2.isEmpty() && !s3.isEmpty() && !s4.isEmpty() && !s5.isEmpty()){
+
+            uploadNow();
+        }
+
+    }
+
+    private void uploadNow() {
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(UpdateProfile2.this);
         final String s1 = preferences.getString("candidateid", "n/a");

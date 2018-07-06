@@ -22,7 +22,7 @@
         android:fontFamily="@font/roboto"
         android:hint="Current Designation"
         android:inputType="textCapWords"
-        android:textSize="14sp"
+        android:textSize="16sp"
         tools:ignore="NotSibling" />
 
     <EditText
@@ -36,7 +36,7 @@
         android:layout_below="@+id/edt1"
         android:hint="Notice Period"
         android:fontFamily="@font/roboto"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:inputType="number"/>
 
     <EditText
@@ -50,7 +50,7 @@
         android:layout_below="@+id/edt2"
         android:hint="Negotiable(Option)"
         android:fontFamily="@font/roboto"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:inputType="textCapWords"/>
 
     <EditText
@@ -64,7 +64,7 @@
         android:layout_below="@+id/edt3"
         android:hint="CTC(Lacs Per Annum)"
         android:fontFamily="@font/roboto"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:inputType="number"/>
 
     <EditText
@@ -78,7 +78,7 @@
         android:layout_below="@+id/edt4"
         android:hint="ECTC(Lacs Per Annum)"
         android:fontFamily="@font/roboto"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:inputType="number"/>
 
     <EditText
@@ -92,7 +92,7 @@
         android:layout_below="@+id/edt5"
         android:hint="Remarks"
         android:fontFamily="@font/roboto"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:inputType="textCapWords"/>
 
     <RelativeLayout
