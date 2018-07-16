@@ -57,7 +57,7 @@ public class UpdateProfile1 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profilepage1_scroll);
+        setContentView(R.layout.update_profile1_new);
 
         name = (EditText) findViewById(R.id.edt1);
         contact = (EditText) findViewById(R.id.edt2);
@@ -70,8 +70,6 @@ public class UpdateProfile1 extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         spinner1 = (Spinner) findViewById(R.id.spin1);
         spinner2 = (Spinner) findViewById(R.id.spin2);
-
-
 
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(UpdateProfile1.this);
@@ -384,16 +382,6 @@ public class UpdateProfile1 extends AppCompatActivity {
         contact.setText(strnum);
         skills.setText(strskills);
 
-        //  setSpinnerToValue(spinner1,strlocation);
-        //  setSpinnerToValue(spinner1,strlocation);
-        //  selectedposition = dataAdapter.getPosition();
-        // Model1 location = (Model1) spinner1.getSelectedItem();
-        //int spinnerposition = dataAdapter.getPosition(strlocation);
-        //spinner1.setSelection(spinnerposition);
-//        spinner1.setAdapter(dataAdapter);
-        //spinner1.setSelection(Integer.parseInt(strlocation));
-//        spinner2.setAdapter(dataAdapter2);
-        //   spinner2.setSelection(Integer.parseInt(strindustry));
         removeNullValue();
     }
 

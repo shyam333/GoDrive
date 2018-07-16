@@ -37,7 +37,7 @@ public class UpdateProfile2 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profilepage2_scroll);
+        setContentView(R.layout.update_profile2_new);
 
         next = (Button) findViewById(R.id.btn);
         designation = (EditText) findViewById(R.id.edt1);
@@ -52,7 +52,6 @@ public class UpdateProfile2 extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Update Profile");

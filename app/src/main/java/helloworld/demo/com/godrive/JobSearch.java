@@ -33,7 +33,6 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
     Button searchbutton;
     Toolbar toolbar;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,7 +105,6 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
 
                 goAndSearch();
                // validationMethod();
-
             }
 
 //            private void validationMethod() {
@@ -136,6 +134,33 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
 
     private void goAndSearch() {
 
+        validationMethod();
+
+    }
+
+    private void validationMethod() {
+
+        final String value1 = autoComplete1.getText().toString();
+        final String value2 = autoComplete2.getText().toString();
+//        final String value3 = spin1.getSelectedItem().toString();
+//        final String value4 = spin2.getSelectedItem().toString();
+
+        if(value1.isEmpty())
+        {
+            Toast.makeText(this,"Enter Category",Toast.LENGTH_SHORT).show();
+        }
+        else if(value2.isEmpty())
+        {
+            Toast.makeText(this,"Enter Location",Toast.LENGTH_SHORT).show();
+        }
+        else if(!value1.isEmpty() && !value2.isEmpty())
+        {
+            doSearch();
+        }
+    }
+
+    private void doSearch() {
+
         final String value1 = autoComplete1.getText().toString();
         final String value2 = autoComplete2.getText().toString();
         final String value3 = spin1.getSelectedItem().toString();
@@ -147,8 +172,8 @@ public class JobSearch extends AppCompatActivity implements AdapterView.OnItemSe
         intent.putExtra("key3",value3);
         intent.putExtra("key4",value4);
         JobSearch.this.startActivity(intent);
-
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

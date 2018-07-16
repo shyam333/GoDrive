@@ -50,7 +50,7 @@ public class SearchedJobs extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("Job List");
+        toolbar.setTitle("Search Results");
         Drawable drawable = ContextCompat.getDrawable(getApplicationContext(),R.drawable.backarrow);
         toolbar.setNavigationIcon(drawable);
         setSupportActionBar(toolbar);
@@ -106,18 +106,22 @@ public class SearchedJobs extends AppCompatActivity {
                                 String expf = o.getString("experience_from");
                                 String expt = o.getString("experience_to");
 
-                                int value1 = Integer.parseInt(expf);
-                                int value2 = Integer.parseInt(expt);
-                                int value3 = Integer.parseInt(expfrom);
-                                int value4 = Integer.parseInt(expto);
+                                Float value1 = Float.valueOf(expf);
+                                Float value2 = Float.valueOf(expt);
+                                Float value3 = Float.valueOf(expfrom);
+                                Float value4 = Float.valueOf(expto);
                                 //if((cat.equals(category) && loc.equals(location)) && (expf.equals(expfrom) && expt.equals(expto)))
-                              //  if((cat.equals(category) && loc.equals(location)))
-                               //if((value1 >= value3) && (value1 <= value3))
-                                //{
-                                    listItem.add(item);
-                                //}
+                              //  if() {
+                                 //   if ((value1 >= value3 && value1 <= value4) && (value2 >= value3 && value2 <= value4))
+                                //    if ((value1 >= value4 && value1 <= value3) && (value2 >= value4 && value2 <= value3))
+                                if(cat.equals(category) && loc.equals(location)) {
+                                    if ((value3 >= value1 && value3 <= value2) || (value4 >= value1 && value4 <= value2) || (value3 <= value1 && value4 >= value2)) {
+                                        listItem.add(item);
+                                    }
+                                }
+
                             }
-                            mAdapter = new MyAdapter1(listItem,getApplicationContext());
+                            mAdapter = new MyAdapter6(listItem,getApplicationContext());
                             if(listItem.isEmpty())
                             {
                                 Toast.makeText(SearchedJobs.this,"No Jobs Found",Toast.LENGTH_SHORT).show();
